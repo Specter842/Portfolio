@@ -8,9 +8,9 @@ import {
   byAgent,
   topModels,
   totalModelsCount,
-  githubStats,
   editorStats,
 } from "@/data/coding-stats";
+import { getGithubStats } from "@/lib/github";
 
 export const metadata: Metadata = {
   title: "Coding Stats | Ishaan Jain",
@@ -31,8 +31,19 @@ function StatTile({ value, label }: { value: string; label: string }) {
   );
 }
 
-export default function CodingStatsPage() {
+export default async function CodingStatsPage() {
   const max = Math.max(...tokenThroughput.chart);
+  const live = await getGithubStats();
+  const githubStats = [
+    { label: "days current streak", value: live ? String(live.currentStreak) : "—" },
+    { label: "days longest streak", value: live ? String(live.longestStreak) : "—" },
+    { label: "contributions", value: live ? live.contributions.toLocaleString() : "—" },
+    { label: "active days", value: live ? String(live.activeDays) : "—" },
+    { label: "busiest day", value: live ? String(live.busiestDay) : "—" },
+    { label: "repositories", value: live ? String(live.repositories) : "—" },
+    { label: "stars", value: live ? String(live.stars) : "—" },
+    { label: "followers", value: live ? String(live.followers) : "—" },
+  ];
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-16">

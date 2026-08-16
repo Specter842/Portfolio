@@ -36,16 +36,6 @@ export const topModels = [
   { name: "grok-4.3", tokens: "13.6M", cost: "$6" },
 ];
 
-export const githubStats = [
-  { label: "days current streak", value: "—" },
-  { label: "days longest streak", value: "—" },
-  { label: "contributions", value: "—" },
-  { label: "active days", value: "—" },
-  { label: "busiest day", value: "—" },
-  { label: "repositories", value: "—" },
-  { label: "stars", value: "—" },
-  { label: "followers", value: "—" },
-];
 
 export const editorStats = {
   weekTotal: "60 hrs 4 mins",
