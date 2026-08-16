@@ -14,7 +14,7 @@ import {
 import { PrintButton } from "@/components/print-button";
 
 export const metadata: Metadata = {
-  title: "Resume | Ishaan Jain",
+  title: "Resume | Specter842",
 };
 
 export default function ResumePage() {

@@ -4,7 +4,7 @@ import { TechBadge } from "@/components/tech-badge";
 import { cardSurface, cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Work | Ishaan Jain",
+  title: "Work | Specter842",
 };
 
 export default function WorkPage() {

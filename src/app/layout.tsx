@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ishaan Jain | Computational Systems Engineer",
+  title: "Specter842 | Computational Systems Engineer",
   description:
     "Computational Systems Engineer building secure, intelligent systems across cybersecurity, blockchain, and robotics.",
 };

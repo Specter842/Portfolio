@@ -13,7 +13,7 @@ import {
 import { getGithubStats } from "@/lib/github";
 
 export const metadata: Metadata = {
-  title: "Coding Stats | Ishaan Jain",
+  title: "Coding Stats | Specter842",
 };
 
 function SectionLabel({ children }: { children: ReactNode }) {

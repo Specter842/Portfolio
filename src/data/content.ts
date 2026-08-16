@@ -134,7 +134,7 @@ export const skillGroups: { label: string; items: string[] }[] = [
 
 export const socials = {
   github: "https://github.com/Specter842",
-  linkedin: "https://linkedin.com/in/ishaanjainofficial",
+  linkedin: "https://linkedin.com/in/ishaanjain842",
   hackerrank: "https://hackerrank.com/ishaanjain842",
   behance: "https://behance.net/specter842",
   email: "specterofficial842@gmail.com",
