@@ -21,9 +21,9 @@ export default function Home() {
               aria-hidden
               className="pointer-events-none absolute -top-1 left-1 text-transparent [-webkit-text-stroke:1px_var(--border)] select-none"
             >
-              ishaan
+              specter842
             </span>
-            <span className="relative">ishaan</span>
+            <span className="relative">specter842</span>
           </h1>
           <p className="mt-4 max-w-md text-muted-foreground">
             Computational Systems Architect building secure, intelligent systems across
