@@ -26,7 +26,7 @@ export default function Home() {
             <span className="relative">specter842</span>
           </h1>
           <p className="mt-4 max-w-md text-muted-foreground">
-            Computational Systems Architect building secure, intelligent systems across
+            Computational Systems Engineer building secure, intelligent systems across
             cybersecurity, blockchain, and robotics.
           </p>
 

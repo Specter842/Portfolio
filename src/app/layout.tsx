@@ -16,9 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ishaan Jain | Computational Systems Architect",
+  title: "Ishaan Jain | Computational Systems Engineer",
   description:
-    "Computational Systems Architect building secure, intelligent systems across cybersecurity, blockchain, and robotics.",
+    "Computational Systems Engineer building secure, intelligent systems across cybersecurity, blockchain, and robotics.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
