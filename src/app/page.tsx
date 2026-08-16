@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { FileText } from "lucide-react";
 import { GithubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
 import { LiveClock } from "@/components/live-clock";
@@ -22,27 +21,14 @@ export default function Home() {
               aria-hidden
               className="pointer-events-none absolute -top-1 left-1 text-transparent [-webkit-text-stroke:1px_var(--border)] select-none"
             >
-              anay
+              ishaan
             </span>
-            <span className="relative">anay</span>
+            <span className="relative">ishaan</span>
           </h1>
           <p className="mt-4 max-w-md text-muted-foreground">
-            Software Engineer fueled by caffeine, building backends &amp; APIs with scalable
-            systems.
+            Computational Systems Architect building secure, intelligent systems across
+            cybersecurity, blockchain, and robotics.
           </p>
-
-          <div className="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-            <span>i use</span>
-            <Image
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@master/icons/archlinux/archlinux-original.svg"
-              alt="Arch Linux"
-              width={16}
-              height={16}
-              unoptimized
-            />
-            <span className="font-medium text-foreground">arch</span>
-            <span>btw</span>
-          </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
             <Link

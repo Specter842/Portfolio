@@ -32,14 +32,16 @@ export function ExperienceSection() {
               ))}
             </div>
 
-            <a
-              href={exp.link.href}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-block text-sm font-medium text-accent hover:underline"
-            >
-              {exp.link.label}
-            </a>
+            {exp.link && (
+              <a
+                href={exp.link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-block text-sm font-medium text-accent hover:underline"
+              >
+                {exp.link.label}
+              </a>
+            )}
           </div>
         ))}
       </div>

@@ -52,9 +52,9 @@ export const editorStats = {
   dailyAvg: "8 hrs 21 mins",
   languages: [
     { name: "TypeScript", time: "36 hrs 54 mins", pct: 61 },
-    { name: "CSS", time: "4 hrs 56 mins", pct: 8 },
-    { name: "Python", time: "4 hrs 31 mins", pct: 7 },
-    { name: "Markdown", time: "3 hrs 45 mins", pct: 6 },
-    { name: "JavaScript", time: "2 hrs 27 mins", pct: 4 },
+    { name: "Python", time: "4 hrs 56 mins", pct: 8 },
+    { name: "JavaScript", time: "4 hrs 31 mins", pct: 7 },
+    { name: "Go", time: "3 hrs 45 mins", pct: 6 },
+    { name: "Solidity", time: "2 hrs 27 mins", pct: 4 },
   ],
 };

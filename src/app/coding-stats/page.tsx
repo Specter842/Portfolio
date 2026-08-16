@@ -13,7 +13,7 @@ import {
 } from "@/data/coding-stats";
 
 export const metadata: Metadata = {
-  title: "Coding Stats | Anay Gupta",
+  title: "Coding Stats | Ishaan Jain",
 };
 
 function SectionLabel({ children }: { children: ReactNode }) {

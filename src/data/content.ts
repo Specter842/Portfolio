@@ -4,47 +4,40 @@ export type Experience = {
   period: string;
   bullets: string[];
   tech: string[];
-  link: { label: string; href: string };
+  link?: { label: string; href: string };
 };
 
 export const experiences: Experience[] = [
   {
-    company: "MegaLLM",
-    role: "Backend Engineer",
-    period: "Nov 2025 - June 2026",
+    company: "Haryana Cyber Police",
+    role: "Cyber Ambassador — Gurugram Police Cyber Security Summer Internship (GPCSSI)",
+    period: "05/2024 - 08/2024",
     bullets: [
-      "Sole engineer on the MegaLLM backend — a production OpenAI/Anthropic-compatible API gateway in front of 70+ LLMs on Hono + Bun + TypeScript with MongoDB, Redis, Kafka, and ClickHouse.",
-      "Designed a 3-tier cache (in-memory LRU → Redis → MongoDB) hitting >95% L0 hit rate at ~2–4ms, plus intelligent model routing with a MobileBERT classifier and 429/5xx fallback chains.",
-      "Shipped Stripe + Razorpay + OxaPay billing with idempotent webhooks, organization wallets, and ClickHouse credit-event streaming for usage correlation.",
-      "Hardened the platform with JWT + Redis blacklist, prefix-lookup API keys, 3-tier admin RBAC, and full Prometheus/OpenTelemetry/Grafana Loki observability.",
+      "Promoted cyber security awareness by coordinating outreach between Gurugram Police and the public.",
+      "Assisted in organising workshops and contributed to community outreach to promote cyber safety.",
     ],
-    tech: [
-      "TypeScript",
-      "Hono",
-      "Bun",
-      "MongoDB",
-      "Redis",
-      "Kafka",
-      "ClickHouse",
-      "Stripe",
-      "Razorpay",
-      "OxaPay",
-      "Prometheus",
-      "Docker",
-    ],
-    link: { label: "megallm.io", href: "https://megallm.io" },
+    tech: ["Cyber Security", "Community Outreach", "Public Safety"],
   },
   {
-    company: "Surf",
-    role: "Co-Founder & Chief AI Engineer",
-    period: "Dec 2025 - Jan 2026",
+    company: "buildspace",
+    role: "Nights and Weekends Programme",
+    period: "05/2024 - 08/2024",
     bullets: [
-      "Co-founded and engineered an AI-powered meeting platform with real-time transcription and multilingual translation",
-      "Designed low-latency AI services using Python, FastAPI, and WebSockets for real-time audio streaming",
-      "Improved transcription stability through streaming optimizations and async processing pipelines",
+      "Developed an acoustic fire suppression project exploring sound-based fire control, collaborating with a global builder community to iterate on the concept.",
     ],
-    tech: ["Python", "FastAPI", "WebSockets", "AI/ML"],
-    link: { label: "staging.shonen.live", href: "https://staging.shonen.live" },
+    tech: ["Hardware Prototyping", "Acoustics", "Product Iteration"],
+    link: { label: "buildspace.so", href: "https://buildspace.so" },
+  },
+  {
+    company: "Adobe Inc.",
+    role: "Project Intern",
+    period: "08/2023 - 11/2023",
+    bullets: [
+      "Completed project-based training using Adobe Express and industry-standard creative workflows.",
+      "Collaborated on team projects, strengthening communication and adaptability in professional environments.",
+    ],
+    tech: ["Adobe Express", "Creative Workflows", "Collaboration"],
+    link: { label: "adobe.com", href: "https://www.adobe.com" },
   },
 ];
 
@@ -122,46 +115,20 @@ export const projects: Project[] = [
 ];
 
 export const skillGroups: { label: string; items: string[] }[] = [
-  { label: "LANGUAGES", items: ["Python", "TypeScript", "JavaScript", "C", "SQL"] },
-  { label: "DATABASES", items: ["MongoDB", "PostgreSQL", "Redis", "ClickHouse", "SQLite"] },
+  { label: "LANGUAGES", items: ["Python", "Java", "C++", "JavaScript", "SQL"] },
   {
-    label: "BACKEND",
-    items: ["FastAPI", "Hono", "Django", "Flask", "Node.js", "Express", "REST APIs", "WebSockets", "SQLAlchemy"],
+    label: "DEVELOPMENT",
+    items: ["Android Development", "Software Architecture", "AI/ML Systems"],
   },
   {
-    label: "FRONTEND",
-    items: ["React.js", "Next.js", "HTML", "CSS", "Tailwind CSS", "Zustand", "Leaflet"],
+    label: "CYBERSECURITY",
+    items: ["Secure Systems", "Network Security", "Threat Analysis", "Data Protection", "LLM Security"],
   },
-  { label: "CLOUD & DEVOPS", items: ["AWS", "Azure", "GCP", "Vercel", "Docker", "Kafka"] },
-  { label: "OBSERVABILITY", items: ["Prometheus", "OpenTelemetry", "Grafana Loki", "Sentry"] },
+  { label: "BLOCKCHAIN", items: ["Solidity", "Ethereum", "Smart Contracts", "Web3.py"] },
+  { label: "TOOLS", items: ["Git", "GitHub", "Linux", "Android Studio", "VS Code"] },
   {
-    label: "CORE CS",
-    items: ["Data Structures & Algorithms", "Problem Solving", "Competitive Programming"],
-  },
-  {
-    label: "TOOLS",
-    items: ["Git", "GitHub", "Linux/Unix", "Bun", "Postman", "Stripe", "Razorpay", "OxaPay", "Twilio", "PIL/Pillow"],
-  },
-];
-
-export const education = [
-  {
-    degree: "B.E. in Computer Science",
-    period: "2025 - 2029 (Expected)",
-    school: "Thapar Institute of Engineering & Technology",
-    location: "Patiala, India",
-  },
-  {
-    degree: "Higher Secondary School (77.2%)",
-    period: "2023 - 2025",
-    school: "SSD Krishna Vatika School",
-    location: "Bathinda, India",
-  },
-  {
-    degree: "Secondary School (81.8%)",
-    period: "2020 - 2023",
-    school: "Bishop Cotton School",
-    location: "Shimla, India",
+    label: "ENGINEERING",
+    items: ["Robotics", "Embedded Systems", "Control Systems", "Prototyping"],
   },
 ];
 
@@ -177,8 +144,8 @@ export const socials = {
 
 export const codingLanguages = [
   { name: "TypeScript", time: "36 hrs 54 mins", weeklyTime: "36 hrs 54 mins" },
-  { name: "CSS", time: "4 hrs 56 mins" },
-  { name: "Python", time: "4 hrs 31 mins" },
-  { name: "Markdown", time: "3 hrs 45 mins" },
-  { name: "JavaScript", time: "2 hrs 27 mins" },
+  { name: "Python", time: "4 hrs 56 mins" },
+  { name: "JavaScript", time: "4 hrs 31 mins" },
+  { name: "Go", time: "3 hrs 45 mins" },
+  { name: "Solidity", time: "2 hrs 27 mins" },
 ];

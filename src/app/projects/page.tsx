@@ -3,7 +3,7 @@ import { projects } from "@/data/content";
 import { ProjectCard } from "@/components/project-card";
 
 export const metadata: Metadata = {
-  title: "Projects | Anay Gupta",
+  title: "Projects | Ishaan Jain",
 };
 
 export default function ProjectsPage() {

@@ -6,7 +6,7 @@ import { socials } from "@/data/content";
 import { cardSurface, cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Contact | Anay Gupta",
+  title: "Contact | Ishaan Jain",
 };
 
 export default function ContactPage() {

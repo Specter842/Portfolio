@@ -4,7 +4,7 @@ import { TechBadge } from "@/components/tech-badge";
 import { cardSurface, cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Work | Anay Gupta",
+  title: "Work | Ishaan Jain",
 };
 
 export default function WorkPage() {
@@ -37,14 +37,16 @@ export default function WorkPage() {
               ))}
             </div>
 
-            <a
-              href={exp.link.href}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 inline-block text-sm font-medium text-accent hover:underline"
-            >
-              {exp.link.label}
-            </a>
+            {exp.link && (
+              <a
+                href={exp.link.href}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-block text-sm font-medium text-accent hover:underline"
+              >
+                {exp.link.label}
+              </a>
+            )}
           </div>
         ))}
       </div>
