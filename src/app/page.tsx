@@ -10,9 +10,7 @@ import { ContactCta } from "@/components/contact-cta";
 import { projects, socials } from "@/data/content";
 import { pillSurface, cn } from "@/lib/utils";
 
-const featured = projects.filter((p) => p.featured).concat(
-  projects.find((p) => p.title.startsWith("Gateway Discord Bot")) ?? []
-);
+const featured = projects.filter((p) => p.featured);
 
 export default function Home() {
   return (

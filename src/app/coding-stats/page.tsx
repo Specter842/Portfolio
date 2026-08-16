@@ -154,7 +154,7 @@ export default function CodingStatsPage() {
             rel="noreferrer"
             className="flex items-center gap-1 text-xs text-muted-foreground hover:text-foreground"
           >
-            <GithubIcon className="size-3.5" /> @Anay0305
+            <GithubIcon className="size-3.5" /> @Specter842
           </a>
         </div>
         <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">

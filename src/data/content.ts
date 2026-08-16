@@ -61,85 +61,63 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Protego: AI-Powered Personal Safety Platform",
-    badge: "Govt. Pre Sabka AI Hackathon — 1st Position",
-    period: "Nov 2025 – Present",
+    title: "Aegis: LLM Security Gateway",
+    badge: "Personal Project",
     description:
-      "Award-winning full-stack personal safety platform with real-time GPS tracking, AI distress detection, geofenced safe zones, covert duress-password flow, and a government dashboard for jurisdiction-based emergency response.",
+      "Production-grade LLM security firewall with bidirectional enforcement, adversarial input scanning, and a real-time operator console.",
     bullets: [
-      "Won 1st Position at the Govt. Pre Sabka AI Hackathon",
-      "Built the FastAPI + PostgreSQL backend with JWT (httpOnly cookies), bcrypt, SQLAlchemy ORM, SlowAPI rate limiting, and Sentry error tracking",
-      "Implemented a 5-second cancellable SOS countdown with parallel dispatch to SMS, WhatsApp, email, and voice via Twilio, plus token-based public live-tracking pages",
-      "Integrated multi-provider AI — Whisper/Deepgram for transcription, Claude (via MegaLLM) for distress analysis, Azure OpenAI Realtime for the AI Safety Call feature, and ElevenLabs for TTS",
-      "Shipped geofencing with Haversine calculations to auto-start/stop walk sessions, plus a Next.js 15 PWA frontend with Leaflet maps and Zustand state",
+      "Built a bidirectional security gateway that scans LLM prompts and responses in real time, combining regex, YARA rules, and ML models in a multi-stage detection pipeline.",
+      "Implemented canary-token leak detection and a YAML-driven policy engine (allow/sanitize/challenge/block) with a real-time WebSocket incident console.",
     ],
-    tech: [
-      "Python",
-      "FastAPI",
-      "PostgreSQL",
-      "SQLAlchemy",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Docker",
-      "Twilio",
-      "WebSockets",
-    ],
-    github: "https://github.com/Anay0305/Protego",
+    tech: ["Python", "FastAPI", "PostgreSQL", "React", "Kafka", "Docker", "YARA"],
+    github: "https://github.com/Specter842/Aegis",
     featured: true,
   },
   {
-    title: "EduGuide: One-Stop Career & Education Advisor",
-    badge: "Smart India Hackathon",
-    period: "Sept 2025 – Oct 2025",
+    title: "UniHealth: Healthcare Interoperability Platform",
+    badge: "Personal Project",
     description:
-      "Developing a full-stack platform using Node.js, Express, MongoDB, and Next.js to improve college enrollment through personalized recommendations.",
+      "Cloud-based healthcare interoperability platform enabling secure real-time hospital data exchange via APIs.",
     bullets: [
-      "Implemented secure authentication, role-based access control, and RESTful APIs for courses and recommendations",
-      "Integrated interactive college maps and multilingual content delivery using translation APIs",
+      "Built a cloud-based healthcare interoperability platform enabling secure real-time hospital data exchange using APIs.",
+      "Implemented role-based access control and a scalable patient identity system for secure inter-hospital coordination.",
     ],
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
+    tech: ["TypeScript", "React", "REST APIs", "RBAC"],
+    github: "https://github.com/Specter842/UniHealth",
     featured: true,
   },
   {
-    title: "Boost Bot API",
+    title: "AuthenTick: Blockchain Anti-Counterfeit Platform",
     badge: "Personal Project",
-    period: "Apr 2025 – May 2025",
     description:
-      "Developed a Django-based backend for license key management, live order tracking, and Discord autobuy integrations.",
-    bullets: [
-      "Implemented WebSocket-based real-time updates and secure token-based authentication",
-    ],
-    tech: ["Python", "Django", "Django Channels", "WebSockets", "REST API"],
+      "Hybrid blockchain platform where manufacturers mint product NFTs, distributors track shipments, and consumers verify authenticity via secure QR codes.",
+    tech: ["TypeScript", "Solidity", "Next.js"],
+    github: "https://github.com/Specter842/AuthenTick",
+    featured: true,
   },
   {
-    title: "Online Mock Tests WebApp",
+    title: "ChainGuard: Ethereum Fraud Detection",
     badge: "Personal Project",
-    period: "Feb 2025 – Mar 2025",
     description:
-      "Developed a Django-based platform for conducting quizzes and mock exams with secure login and result tracking.",
-    bullets: [
-      "Implemented instant scoring, answer review, and an admin panel for managing tests, questions, and users",
-    ],
-    tech: ["Python", "Django", "JavaScript", "SQLite"],
+      "Ethereum fraud detection using a Random Forest classifier on 10,000+ transactions, integrated with a Solidity smart contract for immutable on-chain audit logging.",
+    tech: ["Python", "Jupyter Notebook", "Solidity", "JavaScript"],
+    github: "https://github.com/Specter842/ChainGuard",
   },
   {
-    title: "Gateway Discord Bot",
-    badge: "Public Project",
-    period: "Nov 2022 – Jul 2024",
-    description: "Comprehensive Discord bot with music playback and advanced moderation",
-    bullets: [
-      "Built REST APIs and a Flask-based Card Graphics API for dynamic profile cards and leaderboards",
-      "Scaled the system to 635 guilds and 1.3M+ users while maintaining reliable backend performance",
-    ],
-    tech: ["Python", "discord.py", "Flask", "REST API", "PIL/Pillow"],
+    title: "Glasses: Personal Productivity OS",
+    badge: "Personal Project",
+    description:
+      "A personal productivity operating system for task management, planning, and life organization.",
+    tech: ["JavaScript", "TypeScript"],
+    github: "https://github.com/Specter842/Glasses",
   },
   {
-    title: "Card Graphics API for Gateway",
-    badge: "Public Project",
-    period: "Nov 2022 – Jul 2024",
-    description: "Flask-based microservice for dynamic Discord visuals",
-    tech: ["Python", "Flask", "PIL/Pillow"],
+    title: "Notes & Reminders",
+    badge: "Open Source",
+    description:
+      "An open-source, lightweight note-taking solution — the pain-less way to create meaningful notes, your notes your way.",
+    tech: ["Go", "TypeScript"],
+    github: "https://github.com/Specter842/Notes-and-Reminders",
   },
 ];
 
@@ -188,12 +166,13 @@ export const education = [
 ];
 
 export const socials = {
-  github: "https://github.com/Anay0305",
-  linkedin: "https://linkedin.com/in/anay-gupta-77b8831a1/",
-  leetcode: "https://leetcode.com/Anay0305",
-  email: "anaysumeet@gmail.com",
-  resumeEmail: "me@anays.dev",
-  phone: "+91 90566 90327",
+  github: "https://github.com/Specter842",
+  linkedin: "https://linkedin.com/in/ishaanjainofficial",
+  hackerrank: "https://hackerrank.com/ishaanjain842",
+  behance: "https://behance.net/specter842",
+  email: "specterofficial842@gmail.com",
+  resumeEmail: "specterofficial842@gmail.com",
+  phone: "+91 95998 83298",
 };
 
 export const codingLanguages = [

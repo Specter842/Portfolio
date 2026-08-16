@@ -92,12 +92,12 @@ export default function ContactPage() {
                 <LinkedInIcon className="size-4" /> LinkedIn
               </a>
               <a
-                href={socials.leetcode}
+                href={socials.hackerrank}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
               >
-                <Code2 className="size-4" /> LeetCode
+                <Code2 className="size-4" /> HackerRank
               </a>
             </div>
           </div>
