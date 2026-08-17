@@ -114,6 +114,21 @@ export const projects: Project[] = [
   },
 ];
 
+export type Competition = {
+  name: string;
+  category: "Hackathon" | "Case Competition" | "Finance Competition" | "Other";
+  result?: string;
+  period?: string;
+  description: string;
+  bullets?: string[];
+  tech?: string[];
+  link?: { label: string; href: string };
+};
+
+// Hackathons, case competitions, finance competitions -- add each one here
+// as it happens. Left empty rather than seeded with placeholder entries.
+export const competitions: Competition[] = [];
+
 export const skillGroups: { label: string; items: string[] }[] = [
   { label: "LANGUAGES", items: ["Python", "Java", "C++", "JavaScript", "SQL"] },
   {
