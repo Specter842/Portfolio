@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Code2 } from "lucide-react";
-import { GithubIcon, LinkedInIcon } from "@/components/icons";
+import { GithubIcon } from "@/components/icons";
 import { socials } from "@/data/content";
 import {
   resumeProfile,
@@ -37,14 +37,6 @@ export default function ResumePage() {
               className="flex items-center gap-1 hover:text-foreground"
             >
               <GithubIcon className="size-3.5" /> GitHub
-            </a>
-            <a
-              href={socials.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1 hover:text-foreground"
-            >
-              <LinkedInIcon className="size-3.5" /> LinkedIn
             </a>
             <a
               href={socials.hackerrank}

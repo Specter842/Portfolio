@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FileText } from "lucide-react";
-import { GithubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
+import { GithubIcon, MailIcon } from "@/components/icons";
 import { LiveClock } from "@/components/live-clock";
 import { ExperienceSection } from "@/components/experience-section";
 import { ProjectCard } from "@/components/project-card";
@@ -38,15 +38,6 @@ export default function Home() {
               <FileText className="size-4" />
               Resume
             </Link>
-            <a
-              href={socials.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className={cn(pillSurface, "flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
-            >
-              <LinkedInIcon className="size-4" />
-              LinkedIn
-            </a>
             <a
               href={socials.github}
               target="_blank"

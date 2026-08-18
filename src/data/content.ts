@@ -57,7 +57,7 @@ export const projects: Project[] = [
     title: "Aegis: LLM Security Gateway",
     badge: "Personal Project",
     description:
-      "Production-grade LLM security firewall with bidirectional enforcement, adversarial input scanning, and a real-time operator console.",
+      "A production-grade security firewall that sits in front of LLM applications, inspecting every prompt and response for adversarial inputs, prompt injection, and data leaks. Combines regex, YARA rules, and ML-based detection in a multi-stage pipeline, with a real-time operator console and a YAML-driven policy engine to allow, sanitize, challenge, or block traffic on the fly.",
     bullets: [
       "Built a bidirectional security gateway that scans LLM prompts and responses in real time, combining regex, YARA rules, and ML models in a multi-stage detection pipeline.",
       "Implemented canary-token leak detection and a YAML-driven policy engine (allow/sanitize/challenge/block) with a real-time WebSocket incident console.",
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     title: "UniHealth: Healthcare Interoperability Platform",
     badge: "Personal Project",
     description:
-      "Cloud-based healthcare interoperability platform enabling secure real-time hospital data exchange via APIs.",
+      "A cloud-based platform that lets hospitals exchange patient data securely and in real time through a unified API layer, cutting through the fragmentation of siloed hospital record systems. Built with role-based access control and a scalable patient identity system so multiple institutions can coordinate care without compromising privacy.",
     bullets: [
       "Built a cloud-based healthcare interoperability platform enabling secure real-time hospital data exchange using APIs.",
       "Implemented role-based access control and a scalable patient identity system for secure inter-hospital coordination.",
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     title: "AuthenTick: Blockchain Anti-Counterfeit Platform",
     badge: "Personal Project",
     description:
-      "Hybrid blockchain platform where manufacturers mint product NFTs, distributors track shipments, and consumers verify authenticity via secure QR codes.",
+      "A hybrid blockchain platform for fighting counterfeit goods across the supply chain: manufacturers mint an NFT for each product, distributors log shipment checkpoints on-chain, and consumers scan a secure QR code to instantly verify a product's authenticity and full chain of custody.",
     tech: ["TypeScript", "Solidity", "Next.js"],
     github: "https://github.com/Specter842/AuthenTick",
     featured: true,
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     title: "ChainGuard: Ethereum Fraud Detection",
     badge: "Personal Project",
     description:
-      "Ethereum fraud detection using a Random Forest classifier on 10,000+ transactions, integrated with a Solidity smart contract for immutable on-chain audit logging.",
+      "An Ethereum fraud-detection system that trains a Random Forest classifier on 10,000+ real transactions to flag suspicious wallet activity, then writes flagged events to a Solidity smart contract for tamper-proof, on-chain audit logging that can't be quietly edited after the fact.",
     tech: ["Python", "Jupyter Notebook", "Solidity", "JavaScript"],
     github: "https://github.com/Specter842/ChainGuard",
   },
@@ -100,7 +100,7 @@ export const projects: Project[] = [
     title: "Glasses: Personal Productivity OS",
     badge: "Personal Project",
     description:
-      "A personal productivity operating system for task management, planning, and life organization.",
+      "A personal productivity operating system built to replace a scattered stack of to-do apps and notebooks with one place for task management, planning, and day-to-day life organization — designed around how I actually work rather than a generic template.",
     tech: ["JavaScript", "TypeScript"],
     github: "https://github.com/Specter842/Glasses",
   },
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     title: "Notes & Reminders",
     badge: "Open Source",
     description:
-      "An open-source, lightweight note-taking solution — the pain-less way to create meaningful notes, your notes your way.",
+      "An open-source, lightweight note-taking app focused on getting out of your way: fast capture, minimal friction, and full control over how your notes are organized — built as a self-hostable alternative to heavier, bloated note-taking tools.",
     tech: ["Go", "TypeScript"],
     github: "https://github.com/Specter842/Notes-and-Reminders",
   },
@@ -134,7 +134,6 @@ export const skillGroups: { label: string; items: string[] }[] = [
 
 export const socials = {
   github: "https://github.com/Specter842",
-  linkedin: "https://linkedin.com/in/ishaanjain842",
   hackerrank: "https://hackerrank.com/ishaanjain842",
   behance: "https://behance.net/specter842",
   email: "specterofficial842@gmail.com",

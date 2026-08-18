@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Mail, Phone, MapPin, Code2 } from "lucide-react";
-import { GithubIcon, LinkedInIcon } from "@/components/icons";
+import { GithubIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
 import { socials } from "@/data/content";
 import { cardSurface, cn } from "@/lib/utils";
@@ -82,14 +82,6 @@ export default function ContactPage() {
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
               >
                 <GithubIcon className="size-4" /> GitHub
-              </a>
-              <a
-                href={socials.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-              >
-                <LinkedInIcon className="size-4" /> LinkedIn
               </a>
               <a
                 href={socials.hackerrank}
