@@ -11,6 +11,7 @@ import {
   editorStats,
 } from "@/data/coding-stats";
 import { getGithubStats } from "@/lib/github";
+import { getWakaTimeStats } from "@/lib/wakatime";
 
 export const metadata: Metadata = {
   title: "Coding Stats | Specter842",
@@ -34,6 +35,8 @@ function StatTile({ value, label }: { value: string; label: string }) {
 export default async function CodingStatsPage() {
   const max = Math.max(...tokenThroughput.chart);
   const live = await getGithubStats();
+  const liveEditor = await getWakaTimeStats();
+  const editor = liveEditor ?? editorStats;
   const githubStats = [
     { label: "days current streak", value: live ? String(live.currentStreak) : "—" },
     { label: "days longest streak", value: live ? String(live.longestStreak) : "—" },
@@ -186,16 +189,16 @@ export default async function CodingStatsPage() {
         </div>
         <div className="mt-4 grid grid-cols-2 gap-4">
           <div>
-            <p className="text-xl font-bold">{editorStats.weekTotal}</p>
+            <p className="text-xl font-bold">{editor.weekTotal}</p>
             <p className="text-xs text-muted-foreground">this week</p>
           </div>
           <div>
-            <p className="text-xl font-bold">{editorStats.dailyAvg}</p>
+            <p className="text-xl font-bold">{editor.dailyAvg}</p>
             <p className="text-xs text-muted-foreground">daily average</p>
           </div>
         </div>
         <div className="mt-5 space-y-3">
-          {editorStats.languages.map((l) => (
+          {editor.languages.map((l) => (
             <div key={l.name}>
               <div className="flex justify-between text-sm">
                 <span className="font-medium">{l.name}</span>
