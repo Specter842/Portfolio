@@ -18,6 +18,7 @@ export type WakaTimeStats = {
   dailyAvg: string;
   codedToday: string;
   languages: { name: string; time: string; pct: number }[];
+  dailyBreakdown: { date: string; seconds: number; time: string }[];
 };
 
 function formatDuration(totalSeconds: number): string {
@@ -76,11 +77,21 @@ export async function getWakaTimeWeekSummary(): Promise<WakaTimeStats | null> {
         pct: weekTotalSeconds > 0 ? Math.round((seconds / weekTotalSeconds) * 100) : 0,
       }));
 
+    const dailyBreakdown = days.map((d) => {
+      const seconds = d.grand_total?.total_seconds ?? 0;
+      return {
+        date: d.range?.date ?? "",
+        seconds,
+        time: d.grand_total?.text ?? formatDuration(seconds),
+      };
+    });
+
     return {
       weekTotal: formatDuration(weekTotalSeconds),
       dailyAvg: formatDuration(weekTotalSeconds / days.length),
       codedToday: today.grand_total?.text ?? formatDuration(today.grand_total?.total_seconds ?? 0),
       languages,
+      dailyBreakdown,
     };
   } catch {
     return null;
