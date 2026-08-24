@@ -6,9 +6,6 @@ import {
   resumeExperience,
   resumeSkillGroups,
   resumeProjects,
-  resumeEducation,
-  resumeHonors,
-  resumeLeadership,
 } from "@/data/resume";
 
 export const metadata: Metadata = {
@@ -96,42 +93,6 @@ export default function ResumePage() {
                   </li>
                 ))}
               </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-12">
-        <h2 className="text-xl font-bold tracking-tight">Education</h2>
-        <div className="mt-6 space-y-4">
-          {resumeEducation.map((ed) => (
-            <div key={ed.school}>
-              <p className="font-medium">{ed.school}</p>
-              <p className="text-sm text-muted-foreground">{ed.degree}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-12">
-        <h2 className="text-xl font-bold tracking-tight">Honors and Awards</h2>
-        <ul className="mt-6 space-y-1.5">
-          {resumeHonors.map((h, i) => (
-            <li key={i} className="flex gap-2 text-sm text-muted-foreground">
-              <span className="text-accent">•</span>
-              <span>{h}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="mt-12">
-        <h2 className="text-xl font-bold tracking-tight">Leadership and Extracurricular</h2>
-        <div className="mt-6 space-y-3">
-          {resumeLeadership.map((l) => (
-            <div key={l.org}>
-              <p className="font-medium">{l.org}</p>
-              <p className="text-sm text-muted-foreground">{l.role}</p>
             </div>
           ))}
         </div>

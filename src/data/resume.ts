@@ -1,6 +1,6 @@
 export const resumeProfile = {
   name: "Specter842",
-  title: "Student | Computational Systems Architect",
+  title: "Student | Computational Systems Engineer",
 };
 
 export const resumeExperience = [
@@ -55,25 +55,4 @@ export const resumeProjects = [
       "Implemented role-based access control and a scalable patient identity system for secure inter-hospital coordination.",
     ],
   },
-];
-
-export const resumeEducation = [
-  {
-    school: "Thapar Institute of Engineering and Technology",
-    degree: "Bachelor's in Engineering - Mechatronics Engineering",
-  },
-  {
-    school: "Amity International School",
-    degree: "CBSE Senior Secondary Certificate Examination (Computer Science)",
-  },
-];
-
-export const resumeHonors = [
-  "AIM ATL Marathon – Top 500 Teams (Issued by NITI Ayog, Govt. of India)",
-  "Amity Space Design Contest – First Position (Issued by Children's Science Foundation)",
-];
-
-export const resumeLeadership = [
-  { org: "Mechatronics and Robotics Society, TIET", role: "Control and Automations Engineer" },
-  { org: "Thapar Venture Club", role: "Operations Manager" },
 ];
