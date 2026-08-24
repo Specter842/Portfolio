@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Code2 } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
 import { socials } from "@/data/content";
 import {
@@ -7,11 +6,7 @@ import {
   resumeExperience,
   resumeSkillGroups,
   resumeProjects,
-  resumeEducation,
-  resumeHonors,
-  resumeLeadership,
 } from "@/data/resume";
-import { PrintButton } from "@/components/print-button";
 
 export const metadata: Metadata = {
   title: "Resume | Specter842",
@@ -25,11 +20,9 @@ export default function ResumePage() {
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{resumeProfile.name}</h1>
           <p className="mt-1 text-accent">{resumeProfile.title}</p>
           <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
-            <span>{socials.phone}</span>
             <a href={`mailto:${socials.resumeEmail}`} className="hover:text-foreground">
               {socials.resumeEmail}
             </a>
-            <span>{resumeProfile.location}</span>
             <a
               href={socials.github}
               target="_blank"
@@ -38,17 +31,8 @@ export default function ResumePage() {
             >
               <GithubIcon className="size-3.5" /> GitHub
             </a>
-            <a
-              href={socials.hackerrank}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-1 hover:text-foreground"
-            >
-              <Code2 className="size-3.5" /> HackerRank
-            </a>
           </div>
         </div>
-        <PrintButton />
       </div>
 
       <section className="mt-12">
@@ -61,7 +45,9 @@ export default function ResumePage() {
                 <span className="text-sm text-muted-foreground">{exp.period}</span>
               </div>
               <p className="text-sm text-accent">{exp.role}</p>
-              <p className="text-xs text-muted-foreground">{exp.location}</p>
+              {exp.location && (
+                <p className="text-xs text-muted-foreground">{exp.location}</p>
+              )}
               <ul className="mt-2 space-y-1.5">
                 {exp.bullets.map((b, i) => (
                   <li key={i} className="flex gap-2 text-sm text-muted-foreground">
@@ -107,42 +93,6 @@ export default function ResumePage() {
                   </li>
                 ))}
               </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-12">
-        <h2 className="text-xl font-bold tracking-tight">Education</h2>
-        <div className="mt-6 space-y-4">
-          {resumeEducation.map((ed) => (
-            <div key={ed.school}>
-              <p className="font-medium">{ed.school}</p>
-              <p className="text-sm text-muted-foreground">{ed.degree}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-12">
-        <h2 className="text-xl font-bold tracking-tight">Honors and Awards</h2>
-        <ul className="mt-6 space-y-1.5">
-          {resumeHonors.map((h, i) => (
-            <li key={i} className="flex gap-2 text-sm text-muted-foreground">
-              <span className="text-accent">•</span>
-              <span>{h}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="mt-12">
-        <h2 className="text-xl font-bold tracking-tight">Leadership and Extracurricular</h2>
-        <div className="mt-6 space-y-3">
-          {resumeLeadership.map((l) => (
-            <div key={l.org}>
-              <p className="font-medium">{l.org}</p>
-              <p className="text-sm text-muted-foreground">{l.role}</p>
             </div>
           ))}
         </div>

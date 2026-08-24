@@ -1,21 +1,9 @@
 export const resumeProfile = {
-  name: "Ishaan Jain",
-  title: "Student | Computational Systems Architect",
-  location: "Gurugram, India",
+  name: "Specter842",
+  title: "Student | Computational Systems Engineer",
 };
 
 export const resumeExperience = [
-  {
-    company: "Haryana Cyber Police",
-    role: "Cyber Ambassador",
-    program: "Gurugram Police Cyber Security Summer Internship (GPCSSI)",
-    location: "Gurugram, Haryana, India",
-    period: "05/2024 - 08/2024",
-    bullets: [
-      "Promoted cyber security awareness by coordinating outreach between Gurugram Police and the public.",
-      "Assisted in organising workshops and contributed to community outreach to promote cyber safety.",
-    ],
-  },
   {
     company: "buildspace",
     role: "buildspace - Nights and Weekends Programme",
@@ -28,7 +16,6 @@ export const resumeExperience = [
   {
     company: "Adobe Inc.",
     role: "Project Intern",
-    location: "Greater Noida, UP, India",
     period: "08/2023 - 11/2023",
     bullets: [
       "Completed project-based training using Adobe Express and industry-standard creative workflows.",
@@ -68,25 +55,4 @@ export const resumeProjects = [
       "Implemented role-based access control and a scalable patient identity system for secure inter-hospital coordination.",
     ],
   },
-];
-
-export const resumeEducation = [
-  {
-    school: "Thapar Institute of Engineering and Technology, Punjab",
-    degree: "Bachelor's in Engineering - Mechatronics Engineering",
-  },
-  {
-    school: "Amity International School, Sector-43, Gurugram",
-    degree: "CBSE Senior Secondary Certificate Examination (Computer Science)",
-  },
-];
-
-export const resumeHonors = [
-  "AIM ATL Marathon – Top 500 Teams (Issued by NITI Ayog, Govt. of India)",
-  "Amity Space Design Contest – First Position (Issued by Children's Science Foundation)",
-];
-
-export const resumeLeadership = [
-  { org: "Mechatronics and Robotics Society, TIET", role: "Control and Automations Engineer" },
-  { org: "Thapar Venture Club", role: "Operations Manager" },
 ];
