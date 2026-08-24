@@ -72,6 +72,36 @@ export default async function CodingStatsPage() {
             <p className="text-xs text-muted-foreground">daily average</p>
           </div>
         </div>
+
+        {editor && editor.dailyBreakdown.length > 0 && (
+          <div className="mt-6 border-t border-border pt-5">
+            {(() => {
+              const max = Math.max(...editor.dailyBreakdown.map((d) => d.seconds), 1);
+              return (
+                <div className="flex items-end gap-2" style={{ height: 100 }}>
+                  {editor.dailyBreakdown.map((d) => (
+                    <div key={d.date} className="flex flex-1 flex-col items-center gap-1.5">
+                      <span className="text-[10px] text-muted-foreground">{d.time}</span>
+                      <div
+                        title={`${d.date}: ${d.time}`}
+                        className="w-full rounded-t bg-accent/70"
+                        style={{ height: `${Math.max((d.seconds / max) * 70, 2)}px` }}
+                      />
+                      <span className="text-[10px] text-muted-foreground">
+                        {d.date
+                          ? new Date(`${d.date}T00:00:00`).toLocaleDateString("en-US", {
+                              weekday: "short",
+                            })
+                          : ""}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              );
+            })()}
+          </div>
+        )}
+
         <div className="mt-5 space-y-3">
           {(editor?.languages ?? []).map((l) => (
             <div key={l.name}>
