@@ -19,7 +19,11 @@ export function PieChart({ data }: { data: { name: string; pct: number }[] }) {
     <div className="flex flex-wrap items-center gap-6">
       <div
         className="size-32 shrink-0 rounded-full"
-        style={{ background: `conic-gradient(${stops.join(", ")})` }}
+        style={{
+          background: `conic-gradient(${stops.join(", ")})`,
+          WebkitMask: "radial-gradient(circle, transparent 58%, black 59%)",
+          mask: "radial-gradient(circle, transparent 58%, black 59%)",
+        }}
       />
       <div className="flex flex-col gap-1.5">
         {data.map((d, i) => (
