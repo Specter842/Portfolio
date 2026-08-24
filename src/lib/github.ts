@@ -6,7 +6,15 @@ const QUERY = `
       followers { totalCount }
       repositories(first: 100, isFork: false, privacy: PUBLIC, ownerAffiliations: OWNER) {
         totalCount
-        nodes { stargazerCount }
+        nodes {
+          stargazerCount
+          languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+            edges {
+              size
+              node { name }
+            }
+          }
+        }
       }
       contributionsCollection {
         contributionCalendar {
@@ -25,11 +33,14 @@ const QUERY = `
 
 type ContributionDay = { date: string; contributionCount: number };
 
+type RepoLanguageEdge = { size: number; node: { name: string } };
+type RepoNode = { stargazerCount: number; languages: { edges: RepoLanguageEdge[] } };
+
 type GithubGraphqlResponse = {
   data?: {
     user: {
       followers: { totalCount: number };
-      repositories: { totalCount: number; nodes: { stargazerCount: number }[] };
+      repositories: { totalCount: number; nodes: RepoNode[] };
       contributionsCollection: {
         contributionCalendar: {
           totalContributions: number;
@@ -50,6 +61,7 @@ export type GithubStats = {
   repositories: number;
   stars: number;
   followers: number;
+  languages: { name: string; pct: number }[];
 };
 
 function computeStreaks(days: ContributionDay[]) {
@@ -105,6 +117,21 @@ export async function getGithubStats(): Promise<GithubStats | null> {
     const busiestDay = days.reduce((max, d) => Math.max(max, d.contributionCount), 0);
     const stars = user.repositories.nodes.reduce((sum, r) => sum + r.stargazerCount, 0);
 
+    const languageBytes = new Map<string, number>();
+    for (const repo of user.repositories.nodes) {
+      for (const edge of repo.languages.edges) {
+        languageBytes.set(edge.node.name, (languageBytes.get(edge.node.name) ?? 0) + edge.size);
+      }
+    }
+    const totalBytes = [...languageBytes.values()].reduce((sum, b) => sum + b, 0);
+    const languages = [...languageBytes.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 6)
+      .map(([name, bytes]) => ({
+        name,
+        pct: totalBytes > 0 ? Math.round((bytes / totalBytes) * 100) : 0,
+      }));
+
     return {
       currentStreak: streaks.current,
       longestStreak: streaks.longest,
@@ -114,6 +141,7 @@ export async function getGithubStats(): Promise<GithubStats | null> {
       repositories: user.repositories.totalCount,
       stars,
       followers: user.followers.totalCount,
+      languages,
     };
   } catch {
     return null;

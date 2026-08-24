@@ -4,6 +4,7 @@ import { GithubIcon } from "@/components/icons";
 import { socials } from "@/data/content";
 import { getGithubStats } from "@/lib/github";
 import { getWakaTimeWeekSummary } from "@/lib/wakatime";
+import { PieChart } from "@/components/pie-chart";
 
 export const metadata: Metadata = {
   title: "Coding Stats | Specter842",
@@ -54,6 +55,13 @@ export default async function CodingStatsPage() {
             </div>
           ))}
         </div>
+
+        {live && live.languages.length > 0 && (
+          <div className="mt-6 border-t border-border pt-5">
+            <p className="mb-4 text-xs text-muted-foreground">Language distribution across public repos</p>
+            <PieChart data={live.languages} />
+          </div>
+        )}
       </section>
 
       {/* Editor */}
