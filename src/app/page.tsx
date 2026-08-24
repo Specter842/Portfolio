@@ -8,12 +8,12 @@ import { SkillsSection } from "@/components/skills-section";
 import { ContactCta } from "@/components/contact-cta";
 import { projects, socials } from "@/data/content";
 import { pillSurface, cn } from "@/lib/utils";
-import { getWakaTimeStats, getWakaTimeToday } from "@/lib/wakatime";
+import { getWakaTimeWeekSummary } from "@/lib/wakatime";
 
 const featured = projects.filter((p) => p.featured);
 
 export default async function Home() {
-  const [stats, codedToday] = await Promise.all([getWakaTimeStats(), getWakaTimeToday()]);
+  const stats = await getWakaTimeWeekSummary();
 
   return (
     <main>
@@ -61,7 +61,7 @@ export default async function Home() {
         </div>
 
         <LiveClock
-          codedToday={codedToday}
+          codedToday={stats?.codedToday ?? null}
           weekTotal={stats?.weekTotal ?? null}
           dailyAvg={stats?.dailyAvg ?? null}
           languages={stats?.languages ?? []}
