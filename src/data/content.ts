@@ -9,16 +9,6 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    company: "Haryana Cyber Police",
-    role: "Cyber Ambassador — Gurugram Police Cyber Security Summer Internship (GPCSSI)",
-    period: "05/2024 - 08/2024",
-    bullets: [
-      "Promoted cyber security awareness by coordinating outreach between Gurugram Police and the public.",
-      "Assisted in organising workshops and contributed to community outreach to promote cyber safety.",
-    ],
-    tech: ["Cyber Security", "Community Outreach", "Public Safety"],
-  },
-  {
     company: "buildspace",
     role: "Nights and Weekends Programme",
     period: "05/2024 - 08/2024",
@@ -134,11 +124,9 @@ export const skillGroups: { label: string; items: string[] }[] = [
 
 export const socials = {
   github: "https://github.com/Specter842",
-  hackerrank: "https://hackerrank.com/ishaanjain842",
   behance: "https://behance.net/specter842",
   email: "specterofficial842@gmail.com",
   resumeEmail: "specterofficial842@gmail.com",
-  phone: "+91 95998 83298",
 };
 
 export const codingLanguages = [

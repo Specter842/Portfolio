@@ -1,21 +1,9 @@
 export const resumeProfile = {
-  name: "Ishaan Jain",
+  name: "Specter842",
   title: "Student | Computational Systems Architect",
-  location: "Gurugram, India",
 };
 
 export const resumeExperience = [
-  {
-    company: "Haryana Cyber Police",
-    role: "Cyber Ambassador",
-    program: "Gurugram Police Cyber Security Summer Internship (GPCSSI)",
-    location: "Gurugram, Haryana, India",
-    period: "05/2024 - 08/2024",
-    bullets: [
-      "Promoted cyber security awareness by coordinating outreach between Gurugram Police and the public.",
-      "Assisted in organising workshops and contributed to community outreach to promote cyber safety.",
-    ],
-  },
   {
     company: "buildspace",
     role: "buildspace - Nights and Weekends Programme",
@@ -28,7 +16,6 @@ export const resumeExperience = [
   {
     company: "Adobe Inc.",
     role: "Project Intern",
-    location: "Greater Noida, UP, India",
     period: "08/2023 - 11/2023",
     bullets: [
       "Completed project-based training using Adobe Express and industry-standard creative workflows.",
@@ -72,11 +59,11 @@ export const resumeProjects = [
 
 export const resumeEducation = [
   {
-    school: "Thapar Institute of Engineering and Technology, Punjab",
+    school: "Thapar Institute of Engineering and Technology",
     degree: "Bachelor's in Engineering - Mechatronics Engineering",
   },
   {
-    school: "Amity International School, Sector-43, Gurugram",
+    school: "Amity International School",
     degree: "CBSE Senior Secondary Certificate Examination (Computer Science)",
   },
 ];
