@@ -8,10 +8,13 @@ import { SkillsSection } from "@/components/skills-section";
 import { ContactCta } from "@/components/contact-cta";
 import { projects, socials } from "@/data/content";
 import { pillSurface, cn } from "@/lib/utils";
+import { getWakaTimeStats, getWakaTimeToday } from "@/lib/wakatime";
 
 const featured = projects.filter((p) => p.featured);
 
-export default function Home() {
+export default async function Home() {
+  const [stats, codedToday] = await Promise.all([getWakaTimeStats(), getWakaTimeToday()]);
+
   return (
     <main>
       <section className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
@@ -57,7 +60,12 @@ export default function Home() {
           </div>
         </div>
 
-        <LiveClock />
+        <LiveClock
+          codedToday={codedToday}
+          weekTotal={stats?.weekTotal ?? null}
+          dailyAvg={stats?.dailyAvg ?? null}
+          languages={stats?.languages ?? []}
+        />
       </section>
 
       <ExperienceSection />

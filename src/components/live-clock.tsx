@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { codingLanguages } from "@/data/content";
 
 function greeting(hour: number) {
   if (hour < 12) return "Good morning";
@@ -9,7 +8,14 @@ function greeting(hour: number) {
   return "Good evening";
 }
 
-export function LiveClock() {
+type LiveClockProps = {
+  codedToday: string | null;
+  weekTotal: string | null;
+  dailyAvg: string | null;
+  languages: { name: string }[];
+};
+
+export function LiveClock({ codedToday, weekTotal, dailyAvg, languages }: LiveClockProps) {
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
@@ -20,7 +26,7 @@ export function LiveClock() {
   }, []);
 
   const time = now
-    ? now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })
+    ? now.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true })
     : "";
 
   return (
@@ -28,28 +34,25 @@ export function LiveClock() {
       <p className="text-sm text-muted-foreground">{now ? greeting(now.getHours()) : ""}</p>
       <p className="mt-1 font-mono text-2xl font-semibold">{time}</p>
       <p className="mt-3 text-xs text-muted-foreground">
-        <span className="font-mono text-foreground">2 hrs 59 mins</span> coded today
+        <span className="font-mono text-foreground">{codedToday ?? "—"}</span> coded today
       </p>
 
-      <div className="mt-5 grid grid-cols-3 gap-4 border-t border-border pt-4">
+      <div className="mt-5 grid grid-cols-2 gap-4 border-t border-border pt-4">
         <div>
           <p className="text-xs text-muted-foreground">This week</p>
-          <p className="mt-1 font-medium">60 hrs 32 mins</p>
+          <p className="mt-1 font-medium">{weekTotal ?? "—"}</p>
         </div>
         <div>
           <p className="text-xs text-muted-foreground">Daily avg</p>
-          <p className="mt-1 font-medium">8 hrs 26 mins</p>
-        </div>
-        <div>
-          <p className="text-xs text-muted-foreground">Tokens today</p>
-          <p className="mt-1 font-medium">124.7M</p>
+          <p className="mt-1 font-medium">{dailyAvg ?? "—"}</p>
         </div>
       </div>
 
       <div className="mt-4 border-t border-border pt-4">
         <p className="text-xs text-muted-foreground">Top languages</p>
         <div className="mt-2 flex flex-wrap gap-2">
-          {codingLanguages.map((l) => (
+          {languages.length === 0 && <span className="text-xs text-muted-foreground">—</span>}
+          {languages.map((l) => (
             <span
               key={l.name}
               className="rounded-md bg-secondary px-2 py-1 text-xs text-secondary-foreground"

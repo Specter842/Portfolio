@@ -128,11 +128,3 @@ export const socials = {
   email: "specterofficial842@gmail.com",
   resumeEmail: "specterofficial842@gmail.com",
 };
-
-export const codingLanguages = [
-  { name: "TypeScript", time: "36 hrs 54 mins", weeklyTime: "36 hrs 54 mins" },
-  { name: "Python", time: "4 hrs 56 mins" },
-  { name: "JavaScript", time: "4 hrs 31 mins" },
-  { name: "Go", time: "3 hrs 45 mins" },
-  { name: "Solidity", time: "2 hrs 27 mins" },
-];
