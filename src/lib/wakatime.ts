@@ -9,9 +9,18 @@ type WakaTimeStatsResponse = {
     status?: string;
     human_readable_total?: string;
     human_readable_daily_average?: string;
+    total_seconds?: number;
     languages?: WakaTimeLanguage[];
   };
 };
+
+function formatDuration(totalSeconds: number): string {
+  const totalMinutes = Math.round(totalSeconds / 60);
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  if (hours === 0) return `${minutes} mins`;
+  return `${hours} hrs ${minutes} mins`;
+}
 
 export type WakaTimeStats = {
   weekTotal: string;
@@ -62,12 +71,17 @@ export async function getWakaTimeStats(): Promise<WakaTimeStats | null> {
     const data = json.data;
     if (!data || data.status !== "ok") return null;
 
+    const totalSeconds = data.total_seconds ?? 0;
+
     return {
       weekTotal: data.human_readable_total ?? "—",
       dailyAvg: data.human_readable_daily_average ?? "—",
+      // Derive each language's time from its share of the real total instead of
+      // WakaTime's raw per-language seconds, which can sum to more than the total
+      // when overlapping heartbeats get attributed to multiple languages.
       languages: (data.languages ?? []).slice(0, 5).map((l) => ({
         name: l.name,
-        time: l.text,
+        time: formatDuration((l.percent / 100) * totalSeconds),
         pct: Math.round(l.percent),
       })),
     };
