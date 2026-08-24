@@ -19,6 +19,32 @@ export type WakaTimeStats = {
   languages: { name: string; time: string; pct: number }[];
 };
 
+type WakaTimeTodayResponse = {
+  data?: {
+    grand_total?: { text?: string };
+  };
+};
+
+export async function getWakaTimeToday(): Promise<string | null> {
+  const apiKey = process.env.WAKATIME_API_KEY;
+  if (!apiKey) return null;
+
+  try {
+    const auth = Buffer.from(`${apiKey}:`).toString("base64");
+    const res = await fetch("https://wakatime.com/api/v1/users/current/status_bar/today", {
+      headers: { Authorization: `Basic ${auth}` },
+      next: { revalidate: 300 },
+    });
+
+    if (!res.ok) return null;
+
+    const json: WakaTimeTodayResponse = await res.json();
+    return json.data?.grand_total?.text ?? null;
+  } catch {
+    return null;
+  }
+}
+
 export async function getWakaTimeStats(): Promise<WakaTimeStats | null> {
   const apiKey = process.env.WAKATIME_API_KEY;
   if (!apiKey) return null;
