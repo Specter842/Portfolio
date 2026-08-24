@@ -53,7 +53,7 @@ export async function getWakaTimeStats(): Promise<WakaTimeStats | null> {
     const auth = Buffer.from(`${apiKey}:`).toString("base64");
     const res = await fetch("https://wakatime.com/api/v1/users/current/stats/last_7_days", {
       headers: { Authorization: `Basic ${auth}` },
-      next: { revalidate: 3600 },
+      next: { revalidate: 300 },
     });
 
     if (!res.ok) return null;
