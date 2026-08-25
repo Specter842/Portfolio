@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function WorkPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
+    <main className="mx-auto max-w-5xl px-6 py-10">
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Work Experience</h1>
       <p className="mt-2 text-muted-foreground">My professional journey and experience</p>
 

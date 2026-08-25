@@ -7,6 +7,7 @@ import {
   resumeSkillGroups,
   resumeProjects,
 } from "@/data/resume";
+import { cardSurface, cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Resume | Specter842",
@@ -14,7 +15,8 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
+    <main className="mx-auto max-w-5xl px-6 py-10">
+      <div className={cn(cardSurface, "p-8 hover:translate-y-0")}>
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{resumeProfile.name}</h1>
@@ -97,6 +99,7 @@ export default function ResumePage() {
           ))}
         </div>
       </section>
+      </div>
     </main>
   );
 }
