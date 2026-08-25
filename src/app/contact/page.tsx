@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Mail } from "lucide-react";
-import { GithubIcon } from "@/components/icons";
+import { GithubIcon, LeetCodeIcon, DiscordIcon } from "@/components/icons";
 import { ContactForm } from "@/components/contact-form";
 import { socials } from "@/data/content";
 import { cardSurface, cn } from "@/lib/utils";
@@ -56,6 +56,17 @@ export default function ContactPage() {
               >
                 <GithubIcon className="size-4" /> GitHub
               </a>
+              <a
+                href={socials.leetcode}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+              >
+                <LeetCodeIcon className="size-4" /> LeetCode
+              </a>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <DiscordIcon className="size-4" /> Discord: {socials.discord}
+              </div>
             </div>
           </div>
         </div>
