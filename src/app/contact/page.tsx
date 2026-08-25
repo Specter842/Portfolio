@@ -17,7 +17,7 @@ export default function ContactPage() {
         I&apos;m always interested in hearing about new projects and opportunities
       </p>
 
-      <div className="mt-10 grid gap-8 md:grid-cols-5">
+      <div className="mt-10 grid items-start gap-8 md:grid-cols-5">
         <div className={cn(cardSurface, "p-6 hover:translate-y-0 md:col-span-3")}>
           <h2 className="text-lg font-semibold">Send me a message</h2>
           <p className="mt-1 text-sm text-muted-foreground">
