@@ -4,7 +4,6 @@ import { GithubIcon } from "@/components/icons";
 import { socials } from "@/data/content";
 import { getGithubStats } from "@/lib/github";
 import { getWakaTimeWeekSummary } from "@/lib/wakatime";
-import { getLeetCodeCalendar } from "@/lib/leetcode";
 import { PieChart } from "@/components/pie-chart";
 import { ContributionHeatmap } from "@/components/contribution-heatmap";
 
@@ -24,7 +23,6 @@ function SectionLabel({ children }: { children: ReactNode }) {
 export default async function CodingStatsPage() {
   const live = await getGithubStats();
   const editor = await getWakaTimeWeekSummary();
-  const leetcodeCalendar = await getLeetCodeCalendar();
   const githubStats = [
     { label: "days current streak", value: live ? String(live.currentStreak) : "—" },
     { label: "days longest streak", value: live ? String(live.longestStreak) : "—" },
@@ -37,11 +35,12 @@ export default async function CodingStatsPage() {
   ];
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
+    <main className="mx-auto max-w-6xl px-6 py-16">
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Coding Stats</h1>
 
+      <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-start">
       {/* GitHub */}
-      <section className="mt-10 rounded-2xl border border-border bg-background p-6">
+      <section className="rounded-2xl border border-border bg-background p-6">
         <div className="flex items-center justify-between">
           <SectionLabel>ON GITHUB</SectionLabel>
           <a
@@ -73,14 +72,15 @@ export default async function CodingStatsPage() {
           <div className="mt-6 border-t border-border pt-5">
             <ContributionHeatmap
               githubCalendar={live.calendar}
-              leetcodeCalendar={Object.fromEntries(leetcodeCalendar)}
+              leetcodeCalendar={{}}
+              showLeetCode={false}
             />
           </div>
         )}
       </section>
 
       {/* Editor */}
-      <section className="mt-8 rounded-2xl border border-border bg-background p-6">
+      <section className="rounded-2xl border border-border bg-background p-6">
         <div className="flex items-center justify-between">
           <SectionLabel>IN THE EDITOR</SectionLabel>
           <span className="text-xs text-muted-foreground">last 7 days</span>
@@ -101,13 +101,13 @@ export default async function CodingStatsPage() {
             {(() => {
               const max = Math.max(...editor.dailyBreakdown.map((d) => d.seconds), 1);
               return (
-                <div className="flex items-end gap-2" style={{ height: 100 }}>
+                <div className="flex items-end justify-between gap-2" style={{ height: 100 }}>
                   {editor.dailyBreakdown.map((d) => (
-                    <div key={d.date} className="flex flex-1 flex-col items-center gap-1.5">
+                    <div key={d.date} className="flex w-8 flex-col items-center gap-1.5">
                       <span className="text-[10px] text-muted-foreground">{d.time}</span>
                       <div
                         title={`${d.date}: ${d.time}`}
-                        className="w-full rounded-t bg-accent/70"
+                        className="w-full max-w-8 rounded-t bg-accent/70"
                         style={{ height: `${Math.max((d.seconds / max) * 70, 2)}px` }}
                       />
                       <span className="text-[10px] text-muted-foreground">
@@ -142,6 +142,7 @@ export default async function CodingStatsPage() {
           ))}
         </div>
       </section>
+      </div>
     </main>
   );
 }
