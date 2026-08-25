@@ -62,6 +62,7 @@ export type GithubStats = {
   stars: number;
   followers: number;
   languages: { name: string; pct: number }[];
+  calendar: { date: string; count: number }[];
 };
 
 function computeStreaks(days: ContributionDay[]) {
@@ -142,6 +143,7 @@ export async function getGithubStats(): Promise<GithubStats | null> {
       stars,
       followers: user.followers.totalCount,
       languages,
+      calendar: days.map((d) => ({ date: d.date, count: d.contributionCount })),
     };
   } catch {
     return null;

@@ -4,7 +4,9 @@ import { GithubIcon } from "@/components/icons";
 import { socials } from "@/data/content";
 import { getGithubStats } from "@/lib/github";
 import { getWakaTimeWeekSummary } from "@/lib/wakatime";
+import { getLeetCodeCalendar } from "@/lib/leetcode";
 import { PieChart } from "@/components/pie-chart";
+import { ContributionHeatmap } from "@/components/contribution-heatmap";
 
 export const metadata: Metadata = {
   title: "Coding Stats | Specter842",
@@ -22,6 +24,7 @@ function SectionLabel({ children }: { children: ReactNode }) {
 export default async function CodingStatsPage() {
   const live = await getGithubStats();
   const editor = await getWakaTimeWeekSummary();
+  const leetcodeCalendar = await getLeetCodeCalendar();
   const githubStats = [
     { label: "days current streak", value: live ? String(live.currentStreak) : "—" },
     { label: "days longest streak", value: live ? String(live.longestStreak) : "—" },
@@ -50,7 +53,16 @@ export default async function CodingStatsPage() {
             <GithubIcon className="size-3.5" /> @Specter842
           </a>
         </div>
-        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {live && live.calendar.length > 0 && (
+          <div className="mt-5">
+            <ContributionHeatmap
+              githubCalendar={live.calendar}
+              leetcodeCalendar={Object.fromEntries(leetcodeCalendar)}
+            />
+          </div>
+        )}
+
+        <div className="mt-6 grid grid-cols-2 gap-4 border-t border-border pt-5 sm:grid-cols-4">
           {githubStats.map((g) => (
             <div key={g.label} className="text-center">
               <p className="text-xl font-bold">{g.value}</p>
