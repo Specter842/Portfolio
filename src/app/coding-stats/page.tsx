@@ -53,7 +53,14 @@ export default async function CodingStatsPage() {
             <GithubIcon className="size-3.5" /> @Specter842
           </a>
         </div>
-        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        {live && live.languages.length > 0 && (
+          <div className="mt-5">
+            <p className="mb-4 text-xs text-muted-foreground">Language distribution across public repos</p>
+            <PieChart data={live.languages} />
+          </div>
+        )}
+
+        <div className="mt-6 grid grid-cols-2 gap-4 border-t border-border pt-5 sm:grid-cols-4">
           {githubStats.map((g) => (
             <div key={g.label} className="text-center">
               <p className="text-xl font-bold">{g.value}</p>
@@ -61,13 +68,6 @@ export default async function CodingStatsPage() {
             </div>
           ))}
         </div>
-
-        {live && live.languages.length > 0 && (
-          <div className="mt-6 border-t border-border pt-5">
-            <p className="mb-4 text-xs text-muted-foreground">Language distribution across public repos</p>
-            <PieChart data={live.languages} />
-          </div>
-        )}
 
         {live && live.calendar.length > 0 && (
           <div className="mt-6 border-t border-border pt-5">
