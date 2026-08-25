@@ -9,11 +9,10 @@ import { useEffect } from "react";
 export function SuppressViewTransitionErrors() {
   useEffect(() => {
     function onRejection(event: PromiseRejectionEvent) {
-      const reason = event.reason;
+      const reason = event.reason as { name?: string; message?: string } | undefined;
       if (
-        reason instanceof DOMException &&
-        reason.name === "InvalidStateError" &&
-        /transition was aborted/i.test(reason.message)
+        reason?.name === "InvalidStateError" &&
+        /transition was aborted/i.test(reason.message ?? "")
       ) {
         event.preventDefault();
       }
