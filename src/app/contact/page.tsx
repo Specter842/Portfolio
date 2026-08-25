@@ -62,7 +62,7 @@ export default function ContactPage() {
                 rel="noreferrer"
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
               >
-                <DiscordIcon className="size-4" /> Discord: {socials.discord}
+                <DiscordIcon className="size-4" /> {socials.discord}
               </a>
             </div>
           </div>
