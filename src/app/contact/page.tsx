@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-16">
+    <main className="mx-auto max-w-5xl px-6 py-10">
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Contact</h1>
       <p className="mt-2 text-muted-foreground">
         I&apos;m always interested in hearing about new projects and opportunities

@@ -35,7 +35,7 @@ export default async function CodingStatsPage() {
   ];
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-16">
+    <main className="mx-auto max-w-6xl px-6 py-10">
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Coding Stats</h1>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-start">
