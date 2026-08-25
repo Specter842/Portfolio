@@ -148,28 +148,29 @@ body {
     inset 0 1px 3px rgba(255, 255, 255, 0.03);
 }
 
-/* Circular reveal animation for the theme toggle, expanding from the
-   button that was clicked (--theme-toggle-x/y, set in nav.tsx). */
+/* Minimalist page-transition (default): the old route fades/lifts out,
+   the new one fades/lifts in. Driven by next-view-transitions wrapping
+   every navigation in document.startViewTransition(). */
 ::view-transition-old(root) {
-  animation: none;
+  animation: route-out 180ms ease-in both;
 }
 
 ::view-transition-new(root) {
-  animation: theme-reveal 500ms ease-in-out;
+  animation: route-in 220ms ease-out both;
 }
 
-@keyframes theme-reveal {
+@keyframes route-out {
   from {
-    clip-path: circle(0% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
+    opacity: 1;
+    transform: translateY(0);
   }
   to {
-    clip-path: circle(150% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
+    opacity: 0;
+    transform: translateY(-6px);
   }
 }
 
-/* Minimalist page-transition: fades and lifts each route's content in on
-   navigation (src/app/template.tsx re-mounts this per route change). */
-@keyframes page-in {
+@keyframes route-in {
   from {
     opacity: 0;
     transform: translateY(6px);
@@ -180,6 +181,22 @@ body {
   }
 }
 
-.animate-page-in {
-  animation: page-in 350ms ease-out;
+/* Theme toggle: a circular reveal instead of the default route fade,
+   expanding from the button that was clicked (--theme-toggle-x/y and the
+   .theme-transitioning class are both set in nav.tsx). */
+html.theme-transitioning::view-transition-old(root) {
+  animation: none;
+}
+
+html.theme-transitioning::view-transition-new(root) {
+  animation: theme-reveal 500ms ease-in-out;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
+  }
+  to {
+    clip-path: circle(150% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
+  }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type MouseEvent } from "react";
 import { flushSync } from "react-dom";
@@ -32,6 +32,9 @@ function toggleThemeWithTransition(
     setTheme(next);
     return;
   }
+  document.documentElement.classList.add("theme-transitioning");
+  const stopTransitioning = () =>
+    document.documentElement.classList.remove("theme-transitioning");
   try {
     const transition = document.startViewTransition(() => {
       flushSync(() => setTheme(next));
@@ -41,9 +44,10 @@ function toggleThemeWithTransition(
     // so just swallow the animation-only rejection instead of letting it
     // surface as an unhandled promise rejection.
     transition.ready.catch(() => {});
-    transition.finished.catch(() => {});
+    transition.finished.catch(() => {}).finally(stopTransitioning);
   } catch {
     setTheme(next);
+    stopTransitioning();
   }
 }
 
