@@ -2,15 +2,31 @@
 
 import { useState, type FormEvent } from "react";
 
+const FORM_ENDPOINT = "https://forminit.com/f/cbuc497qrrz";
+
 const inputClass =
   "mt-1.5 w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-accent";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("sent");
+    const form = e.currentTarget;
+    setStatus("sending");
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error("submission failed");
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -19,7 +35,7 @@ export function ContactForm() {
         <label htmlFor="name" className="text-sm font-medium">
           Name *
         </label>
-        <input id="name" required placeholder="Your name" className={inputClass} />
+        <input id="name" name="name" required placeholder="Your name" className={inputClass} />
       </div>
 
       <div>
@@ -28,6 +44,7 @@ export function ContactForm() {
         </label>
         <input
           id="email"
+          name="email"
           type="email"
           required
           placeholder="your.email@example.com"
@@ -39,11 +56,7 @@ export function ContactForm() {
         <label htmlFor="link" className="text-sm font-medium">
           Link (optional)
         </label>
-        <input
-          id="link"
-          placeholder="https://your-project.com"
-          className={inputClass}
-        />
+        <input id="link" name="link" placeholder="https://your-project.com" className={inputClass} />
       </div>
 
       <div>
@@ -52,6 +65,7 @@ export function ContactForm() {
         </label>
         <textarea
           id="message"
+          name="message"
           required
           rows={3}
           placeholder="Tell me about your project or just say hello..."
@@ -65,6 +79,7 @@ export function ContactForm() {
         </label>
         <input
           id="attachment"
+          name="attachment"
           type="file"
           className="mt-1.5 block w-full text-sm text-muted-foreground file:mr-3 file:rounded-lg file:border file:border-border-strong file:bg-card file:px-3 file:py-1.5 file:text-sm file:font-medium"
         />
@@ -75,13 +90,19 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="w-full rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-white shadow-lg shadow-accent/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--accent-color-dark)]"
+        disabled={status === "sending"}
+        className="w-full rounded-lg bg-accent px-4 py-2.5 text-sm font-medium text-white shadow-lg shadow-accent/25 transition-all duration-200 hover:-translate-y-0.5 hover:bg-[var(--accent-color-dark)] disabled:opacity-60 disabled:hover:translate-y-0"
       >
-        Send Message
+        {status === "sending" ? "Sending..." : "Send Message"}
       </button>
 
       {status === "sent" && (
-        <p className="text-sm text-accent">Thanks — your message has been noted.</p>
+        <p className="text-sm text-accent">Thanks — your message has been sent.</p>
+      )}
+      {status === "error" && (
+        <p className="text-sm text-destructive">
+          Something went wrong sending that — try again, or email me directly.
+        </p>
       )}
     </form>
   );
