@@ -2,30 +2,34 @@
 
 import { useEffect } from "react";
 
-// next-view-transitions occasionally has its internal document.startViewTransition()
-// call aborted (a benign race, not a functional bug -- navigation itself still
-// completes). It catches that internally and logs it via console.error itself,
-// so it's never a genuinely unhandled rejection -- a window "unhandledrejection"
-// listener never sees it. Patch console.error to drop just this one message.
-function isBenignTransitionAbort(args: unknown[]): boolean {
-  return args.some((arg) => {
-    const value = arg as { name?: string; message?: string } | undefined;
-    return (
-      value?.name === "InvalidStateError" &&
-      /transition was aborted/i.test(value.message ?? "")
-    );
-  });
+function isBenignTransitionAbort(value: unknown): boolean {
+  const v = value as { name?: string; message?: string } | undefined;
+  return v?.name === "InvalidStateError" && /transition was aborted/i.test(v.message ?? "");
 }
 
+// next-view-transitions occasionally has its internal document.startViewTransition()
+// call aborted (a benign race, not a functional bug -- navigation itself still
+// completes). It surfaces as a genuinely unhandled promise rejection on route
+// changes. Suppress just this one known-benign error via both mechanisms that
+// can produce it, since which one applies isn't consistent.
 export function SuppressViewTransitionErrors() {
   useEffect(() => {
-    const original = console.error;
+    function onRejection(event: PromiseRejectionEvent) {
+      if (isBenignTransitionAbort(event.reason)) {
+        event.preventDefault();
+      }
+    }
+    window.addEventListener("unhandledrejection", onRejection);
+
+    const originalError = console.error;
     console.error = (...args: unknown[]) => {
-      if (isBenignTransitionAbort(args)) return;
-      original(...args);
+      if (args.some(isBenignTransitionAbort)) return;
+      originalError(...args);
     };
+
     return () => {
-      console.error = original;
+      window.removeEventListener("unhandledrejection", onRejection);
+      console.error = originalError;
     };
   }, []);
 
