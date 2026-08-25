@@ -29,9 +29,11 @@ function cellBackground(githubCount: number, leetcodeCount: number) {
 export function ContributionHeatmap({
   githubCalendar,
   leetcodeCalendar,
+  showLeetCode = true,
 }: {
   githubCalendar: { date: string; count: number }[];
   leetcodeCalendar: Record<string, number>;
+  showLeetCode?: boolean;
 }) {
   if (githubCalendar.length === 0) return null;
 
@@ -48,11 +50,15 @@ export function ContributionHeatmap({
         {weeks.map((week, i) => (
           <div key={i} className="flex flex-col gap-[3px]">
             {week.map((day) => {
-              const leetcodeCount = leetcodeCalendar[day.date] ?? 0;
+              const leetcodeCount = showLeetCode ? leetcodeCalendar[day.date] ?? 0 : 0;
               return (
                 <div
                   key={day.date}
-                  title={`${day.date}: ${day.count} GitHub contribution${day.count === 1 ? "" : "s"}, ${leetcodeCount} LeetCode submission${leetcodeCount === 1 ? "" : "s"}`}
+                  title={
+                    showLeetCode
+                      ? `${day.date}: ${day.count} GitHub contribution${day.count === 1 ? "" : "s"}, ${leetcodeCount} LeetCode submission${leetcodeCount === 1 ? "" : "s"}`
+                      : `${day.date}: ${day.count} GitHub contribution${day.count === 1 ? "" : "s"}`
+                  }
                   className="size-[11px] rounded-[2px]"
                   style={{ background: cellBackground(day.count, leetcodeCount) }}
                 />
@@ -62,23 +68,25 @@ export function ContributionHeatmap({
         ))}
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-        <div className="flex items-center gap-1.5">
-          <span className="size-2.5 rounded-[2px]" style={{ background: GITHUB_COLOR }} />
-          GitHub
+      {showLeetCode && (
+        <div className="mt-3 flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+          <div className="flex items-center gap-1.5">
+            <span className="size-2.5 rounded-[2px]" style={{ background: GITHUB_COLOR }} />
+            GitHub
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span className="size-2.5 rounded-[2px]" style={{ background: LEETCODE_COLOR }} />
+            LeetCode
+          </div>
+          <div className="flex items-center gap-1.5">
+            <span
+              className="size-2.5 rounded-[2px]"
+              style={{ background: `linear-gradient(135deg, ${GITHUB_COLOR} 50%, ${LEETCODE_COLOR} 50%)` }}
+            />
+            Both
+          </div>
         </div>
-        <div className="flex items-center gap-1.5">
-          <span className="size-2.5 rounded-[2px]" style={{ background: LEETCODE_COLOR }} />
-          LeetCode
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span
-            className="size-2.5 rounded-[2px]"
-            style={{ background: `linear-gradient(135deg, ${GITHUB_COLOR} 50%, ${LEETCODE_COLOR} 50%)` }}
-          />
-          Both
-        </div>
-      </div>
+      )}
     </div>
   );
 }
