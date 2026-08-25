@@ -4,21 +4,29 @@ import { useEffect } from "react";
 
 // next-view-transitions occasionally has its internal document.startViewTransition()
 // call aborted (a benign race, not a functional bug -- navigation itself still
-// completes). Without this it surfaces as an unhandled promise rejection on
-// every route change. Only swallow that exact rejection; let anything else through.
+// completes). It catches that internally and logs it via console.error itself,
+// so it's never a genuinely unhandled rejection -- a window "unhandledrejection"
+// listener never sees it. Patch console.error to drop just this one message.
+function isBenignTransitionAbort(args: unknown[]): boolean {
+  return args.some((arg) => {
+    const value = arg as { name?: string; message?: string } | undefined;
+    return (
+      value?.name === "InvalidStateError" &&
+      /transition was aborted/i.test(value.message ?? "")
+    );
+  });
+}
+
 export function SuppressViewTransitionErrors() {
   useEffect(() => {
-    function onRejection(event: PromiseRejectionEvent) {
-      const reason = event.reason as { name?: string; message?: string } | undefined;
-      if (
-        reason?.name === "InvalidStateError" &&
-        /transition was aborted/i.test(reason.message ?? "")
-      ) {
-        event.preventDefault();
-      }
-    }
-    window.addEventListener("unhandledrejection", onRejection);
-    return () => window.removeEventListener("unhandledrejection", onRejection);
+    const original = console.error;
+    console.error = (...args: unknown[]) => {
+      if (isBenignTransitionAbort(args)) return;
+      original(...args);
+    };
+    return () => {
+      console.error = original;
+    };
   }, []);
 
   return null;
