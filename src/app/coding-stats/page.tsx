@@ -101,13 +101,13 @@ export default async function CodingStatsPage() {
             {(() => {
               const max = Math.max(...editor.dailyBreakdown.map((d) => d.seconds), 1);
               return (
-                <div className="flex items-end justify-between gap-2" style={{ height: 100 }}>
+                <div className="chart-hover-group flex items-end justify-between gap-2" style={{ height: 100 }}>
                   {editor.dailyBreakdown.map((d) => (
                     <div key={d.date} className="flex w-8 flex-col items-center gap-1.5">
                       <span className="text-[10px] text-muted-foreground">{d.time}</span>
                       <div
                         title={`${d.date}: ${d.time}`}
-                        className="w-full max-w-8 rounded-t bg-accent/70"
+                        className="chart-hover-item w-full max-w-8 rounded-t bg-accent/70"
                         style={{ height: `${Math.max((d.seconds / max) * 70, 2)}px` }}
                       />
                       <span className="text-[10px] text-muted-foreground">

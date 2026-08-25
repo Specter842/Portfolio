@@ -54,7 +54,7 @@ export function ContributionHeatmap({
 
   return (
     <div>
-      <div className="flex gap-[3px]">
+      <div className="chart-hover-group flex gap-[3px]">
         {weeks.map((week, i) => (
           <div
             key={i}
@@ -73,7 +73,7 @@ export function ContributionHeatmap({
                       ? `${day.date}: ${day.count} GitHub contribution${day.count === 1 ? "" : "s"}, ${leetcodeCount} LeetCode submission${leetcodeCount === 1 ? "" : "s"}`
                       : `${day.date}: ${day.count} GitHub contribution${day.count === 1 ? "" : "s"}`
                   }
-                  className="size-[11px] rounded-[2px]"
+                  className="chart-hover-item size-[11px] rounded-[2px]"
                   style={{ background: cellBackground(day.count, leetcodeCount) }}
                 />
               );
