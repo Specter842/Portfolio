@@ -166,3 +166,20 @@ body {
     clip-path: circle(150% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
   }
 }
+
+/* Minimalist page-transition: fades and lifts each route's content in on
+   navigation (src/app/template.tsx re-mounts this per route change). */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-page-in {
+  animation: page-in 350ms ease-out;
+}
