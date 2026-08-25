@@ -4,38 +4,44 @@ import { socials } from "@/data/content";
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-border/60">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 py-6 text-center text-sm text-muted-foreground">
-        <div className="flex items-center gap-3">
+      <div className="mx-auto flex max-w-5xl flex-col gap-6 px-6 py-8">
+        <div className="flex items-center justify-center gap-4">
           <a
             href={socials.github}
             target="_blank"
             rel="noreferrer"
-            className="flex size-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground"
+            aria-label="GitHub"
+            className="rounded-full bg-secondary/50 p-2.5 text-muted-foreground transition-colors hover:bg-border-strong hover:text-accent"
           >
-            <GithubIcon className="size-5" />
+            <GithubIcon className="size-4" />
           </a>
           <a
             href={socials.discordUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex size-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground"
+            aria-label="Discord"
+            className="rounded-full bg-secondary/50 p-2.5 text-muted-foreground transition-colors hover:bg-border-strong hover:text-accent"
           >
-            <DiscordIcon className="size-5" />
+            <DiscordIcon className="size-4" />
           </a>
           <a
             href={`mailto:${socials.email}`}
-            className="flex size-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-border-strong hover:text-foreground"
+            aria-label="Email"
+            className="rounded-full bg-secondary/50 p-2.5 text-muted-foreground transition-colors hover:bg-border-strong hover:text-accent"
           >
-            <MailIcon className="size-5" />
+            <MailIcon className="size-4" />
           </a>
         </div>
-        <div className="flex flex-col items-center gap-1.5">
+        <div className="flex flex-col items-center justify-between gap-4 text-xs text-muted-foreground sm:flex-row sm:text-sm">
           <p>© 2026 specter842. All rights reserved.</p>
-          <p>
-            Fueled by <span aria-hidden>☕</span>
-            <span className="mx-2">•</span>
-            Crafted in <span className="font-medium text-foreground">Next.js</span>
-          </p>
+          <div className="flex items-center gap-1.5">
+            <span>Fueled by</span>
+            <span aria-hidden>☕</span>
+            <span>•</span>
+            <span>
+              Crafted in <span className="font-semibold text-accent">Next.js</span>
+            </span>
+          </div>
         </div>
       </div>
     </footer>
