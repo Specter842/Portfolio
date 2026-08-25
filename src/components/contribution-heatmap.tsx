@@ -46,16 +46,16 @@ export function ContributionHeatmap({
 
   return (
     <div>
-      <div className="flex gap-[3px]">
+      <div className="flex w-full justify-between">
         {weeks.map((week, i) => (
-          <div key={i} className="flex flex-col gap-[3px]">
+          <div key={i} className="flex flex-col gap-[6px]">
             {week.map((day) => {
               const leetcodeCount = leetcodeCalendar[day.date] ?? 0;
               return (
                 <div
                   key={day.date}
                   title={`${day.date}: ${day.count} GitHub contribution${day.count === 1 ? "" : "s"}, ${leetcodeCount} LeetCode submission${leetcodeCount === 1 ? "" : "s"}`}
-                  className="size-[11px] rounded-[2px]"
+                  className="size-5 rounded-[4px]"
                   style={{ background: cellBackground(day.count, leetcodeCount) }}
                 />
               );

@@ -39,6 +39,7 @@ export type Project = {
   bullets?: string[];
   tech: string[];
   github?: string;
+  liveUrl?: string;
   featured?: boolean;
 };
 
@@ -54,6 +55,7 @@ export const projects: Project[] = [
     ],
     tech: ["Python", "FastAPI", "PostgreSQL", "React", "Kafka", "Docker", "YARA"],
     github: "https://github.com/Specter842/Aegis",
+    liveUrl: "https://aegis-frontend-dn3z.onrender.com",
     featured: true,
   },
   {
@@ -67,6 +69,7 @@ export const projects: Project[] = [
     ],
     tech: ["TypeScript", "React", "REST APIs", "RBAC"],
     github: "https://github.com/Specter842/UniHealth",
+    liveUrl: "https://uni-health-kappa.vercel.app",
     featured: true,
   },
   {
