@@ -58,6 +58,20 @@ export default function ContactPage() {
               </a>
             </div>
           </div>
+
+          <div className={cn(cardSurface, "p-5 hover:translate-y-0")}>
+            <div className="flex items-center gap-2">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-500 opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-green-500" />
+              </span>
+              <p className="text-sm font-medium">Currently available</p>
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Open to new opportunities and interesting projects. I typically reply within 24
+              hours.
+            </p>
+          </div>
         </div>
       </div>
     </main>
