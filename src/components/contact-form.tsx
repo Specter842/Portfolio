@@ -53,7 +53,7 @@ export function ContactForm() {
         <textarea
           id="message"
           required
-          rows={5}
+          rows={3}
           placeholder="Tell me about your project or just say hello..."
           className={inputClass}
         />
