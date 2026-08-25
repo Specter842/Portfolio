@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
+import { flushSync } from "react-dom";
 import { useTheme } from "next-themes";
 import { Menu, X } from "lucide-react";
 import { SunIcon, MoonIcon } from "@/components/icons";
@@ -15,6 +16,36 @@ const links = [
   { href: "/resume", label: "Resume" },
   { href: "/coding-stats", label: "Stats" },
 ];
+
+function toggleThemeWithTransition(
+  e: MouseEvent<HTMLButtonElement>,
+  next: "light" | "dark",
+  setTheme: (theme: string) => void
+) {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const x = ((rect.left + rect.width / 2) / window.innerWidth) * 100;
+  const y = ((rect.top + rect.height / 2) / window.innerHeight) * 100;
+  document.documentElement.style.setProperty("--theme-toggle-x", `${x}%`);
+  document.documentElement.style.setProperty("--theme-toggle-y", `${y}%`);
+
+  if (!document.startViewTransition) {
+    setTheme(next);
+    return;
+  }
+  try {
+    const transition = document.startViewTransition(() => {
+      flushSync(() => setTheme(next));
+    });
+    // A transition can be aborted (e.g. dev-server HMR interference) without
+    // the theme change itself failing -- flushSync already applied it above,
+    // so just swallow the animation-only rejection instead of letting it
+    // surface as an unhandled promise rejection.
+    transition.ready.catch(() => {});
+    transition.finished.catch(() => {});
+  } catch {
+    setTheme(next);
+  }
+}
 
 export function Nav() {
   const pathname = usePathname();
@@ -47,7 +78,9 @@ export function Nav() {
           ))}
           <button
             aria-label="Toggle theme"
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+            onClick={(e) =>
+              toggleThemeWithTransition(e, resolvedTheme === "dark" ? "light" : "dark", setTheme)
+            }
             className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:text-foreground"
           >
             {mounted && resolvedTheme === "dark" ? (
@@ -84,7 +117,9 @@ export function Nav() {
           ))}
           <button
             aria-label="Toggle theme"
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+            onClick={(e) =>
+              toggleThemeWithTransition(e, resolvedTheme === "dark" ? "light" : "dark", setTheme)
+            }
             className="mt-2 flex w-fit items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm text-muted-foreground"
           >
             {mounted && resolvedTheme === "dark" ? (
