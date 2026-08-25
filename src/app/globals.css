@@ -147,3 +147,22 @@ body {
     inset 0 1px 2px rgba(255, 255, 255, 0.04),
     inset 0 1px 3px rgba(255, 255, 255, 0.03);
 }
+
+/* Circular reveal animation for the theme toggle, expanding from the
+   button that was clicked (--theme-toggle-x/y, set in nav.tsx). */
+::view-transition-old(root) {
+  animation: none;
+}
+
+::view-transition-new(root) {
+  animation: theme-reveal 500ms ease-in-out;
+}
+
+@keyframes theme-reveal {
+  from {
+    clip-path: circle(0% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
+  }
+  to {
+    clip-path: circle(150% at var(--theme-toggle-x, 50%) var(--theme-toggle-y, 50%));
+  }
+}
