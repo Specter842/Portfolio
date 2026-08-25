@@ -64,9 +64,14 @@ export default function ContactPage() {
               >
                 <LeetCodeIcon className="size-4" /> LeetCode
               </a>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <a
+                href={socials.discordUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+              >
                 <DiscordIcon className="size-4" /> Discord: {socials.discord}
-              </div>
+              </a>
             </div>
           </div>
         </div>

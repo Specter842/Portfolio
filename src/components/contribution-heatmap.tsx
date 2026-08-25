@@ -39,14 +39,17 @@ export function ContributionHeatmap({
 
   // githubCalendar arrives flat and already in Sunday-first weekly order from
   // the GitHub API's contributionCalendar -- chunk it back into weeks of 7.
-  const weeks: { date: string; count: number }[][] = [];
+  const allWeeks: { date: string; count: number }[][] = [];
   for (let i = 0; i < githubCalendar.length; i += 7) {
-    weeks.push(githubCalendar.slice(i, i + 7));
+    allWeeks.push(githubCalendar.slice(i, i + 7));
   }
+  // Cap to what comfortably fits in a card column at 14px/week without
+  // needing horizontal scroll -- show as much recent history as fits.
+  const weeks = allWeeks.slice(-30);
 
   return (
     <div>
-      <div className="flex gap-[3px] overflow-x-auto pb-1">
+      <div className="flex gap-[3px]">
         {weeks.map((week, i) => (
           <div key={i} className="flex flex-col gap-[3px]">
             {week.map((day) => {
