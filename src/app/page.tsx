@@ -71,12 +71,15 @@ export default async function Home() {
               <LeetCodeIcon className="size-4" />
               LeetCode
             </a>
-            <div
-              className={cn(pillSurface, "flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:translate-y-0")}
+            <a
+              href={socials.discordUrl}
+              target="_blank"
+              rel="noreferrer"
+              className={cn(pillSurface, "flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
             >
               <DiscordIcon className="size-4" />
               {socials.discord}
-            </div>
+            </a>
           </div>
         </div>
 
