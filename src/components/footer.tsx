@@ -3,7 +3,7 @@ import { socials } from "@/data/content";
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-border/60">
+    <footer className="mt-auto">
       <div className="mx-auto flex max-w-5xl flex-col gap-6 px-6 py-8">
         <div className="flex items-center justify-center gap-4">
           <a

@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 const GITHUB_COLOR = "var(--accent-color)";
 const LEETCODE_COLOR = "oklch(65% 0 0)"; // neutral gray, distinct from the site's accent
 
@@ -46,12 +48,21 @@ export function ContributionHeatmap({
   // Cap to what comfortably fits in a card column at 14px/week without
   // needing horizontal scroll -- show as much recent history as fits.
   const weeks = allWeeks.slice(-30);
+  // Phone-width cards can't fit 30 weeks -- only the most recent 12 stay
+  // visible below the sm breakpoint, older columns hide instead of scrolling.
+  const mobileVisibleFrom = weeks.length - 12;
 
   return (
     <div>
       <div className="flex gap-[3px]">
         {weeks.map((week, i) => (
-          <div key={i} className="flex flex-col gap-[3px]">
+          <div
+            key={i}
+            className={cn(
+              "flex flex-col gap-[3px]",
+              i < mobileVisibleFrom && "hidden sm:flex"
+            )}
+          >
             {week.map((day) => {
               const leetcodeCount = showLeetCode ? leetcodeCalendar[day.date] ?? 0 : 0;
               return (
