@@ -38,10 +38,10 @@ export default async function Home() {
             cybersecurity, blockchain, and robotics.
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-nowrap gap-2 overflow-x-auto">
             <Link
               href="/resume"
-              className={cn(pillSurface, "flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
+              className={cn(pillSurface, "flex shrink-0 items-center gap-2 px-3.5 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
             >
               <FileText className="size-4" />
               Resume
@@ -50,14 +50,14 @@ export default async function Home() {
               href={socials.github}
               target="_blank"
               rel="noreferrer"
-              className={cn(pillSurface, "flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
+              className={cn(pillSurface, "flex shrink-0 items-center gap-2 px-3.5 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
             >
               <GithubIcon className="size-4" />
               GitHub
             </a>
             <a
               href={`mailto:${socials.email}`}
-              className={cn(pillSurface, "flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
+              className={cn(pillSurface, "flex shrink-0 items-center gap-2 px-3.5 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
             >
               <MailIcon className="size-4" />
               Email
@@ -66,10 +66,10 @@ export default async function Home() {
               href={socials.discordUrl}
               target="_blank"
               rel="noreferrer"
-              className={cn(pillSurface, "flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
+              className={cn(pillSurface, "flex shrink-0 items-center gap-2 px-3.5 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
             >
               <DiscordIcon className="size-4" />
-              {socials.discord}
+              Discord
             </a>
           </div>
         </div>
