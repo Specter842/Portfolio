@@ -37,25 +37,23 @@ export function ContributionHeatmap({
 
   // githubCalendar arrives flat and already in Sunday-first weekly order from
   // the GitHub API's contributionCalendar -- chunk it back into weeks of 7.
-  const allWeeks: { date: string; count: number }[][] = [];
+  const weeks: { date: string; count: number }[][] = [];
   for (let i = 0; i < githubCalendar.length; i += 7) {
-    allWeeks.push(githubCalendar.slice(i, i + 7));
+    weeks.push(githubCalendar.slice(i, i + 7));
   }
-  // Keep the widget compact -- show the last month rather than the full year.
-  const weeks = allWeeks.slice(-5);
 
   return (
     <div>
-      <div className="flex w-full justify-between">
+      <div className="flex gap-[3px] overflow-x-auto pb-1">
         {weeks.map((week, i) => (
-          <div key={i} className="flex flex-col gap-[6px]">
+          <div key={i} className="flex flex-col gap-[3px]">
             {week.map((day) => {
               const leetcodeCount = leetcodeCalendar[day.date] ?? 0;
               return (
                 <div
                   key={day.date}
                   title={`${day.date}: ${day.count} GitHub contribution${day.count === 1 ? "" : "s"}, ${leetcodeCount} LeetCode submission${leetcodeCount === 1 ? "" : "s"}`}
-                  className="size-5 rounded-[4px]"
+                  className="size-[11px] rounded-[2px]"
                   style={{ background: cellBackground(day.count, leetcodeCount) }}
                 />
               );
