@@ -101,16 +101,22 @@ export default async function CodingStatsPage() {
             {(() => {
               const max = Math.max(...editor.dailyBreakdown.map((d) => d.seconds), 1);
               return (
-                <div className="chart-hover-group flex items-end justify-between gap-2" style={{ height: 100 }}>
+                <div className="chart-hover-group flex items-start justify-between gap-2">
                   {editor.dailyBreakdown.map((d) => (
-                    <div key={d.date} className="flex w-8 flex-col items-center gap-1.5">
-                      <span className="text-[10px] text-muted-foreground">{d.time}</span>
-                      <div
-                        title={`${d.date}: ${d.time}`}
-                        className="chart-hover-item w-full max-w-8 rounded-t bg-accent/70"
-                        style={{ height: `${Math.max((d.seconds / max) * 70, 2)}px` }}
-                      />
-                      <span className="text-[10px] text-muted-foreground">
+                    <div key={d.date} className="flex w-8 flex-col items-center">
+                      <div className="flex h-9 items-end justify-center">
+                        <span className="text-center text-[10px] leading-tight text-muted-foreground">
+                          {d.time}
+                        </span>
+                      </div>
+                      <div className="flex h-[70px] w-full items-end">
+                        <div
+                          title={`${d.date}: ${d.time}`}
+                          className="chart-hover-item w-full rounded-t bg-accent/70"
+                          style={{ height: `${Math.max((d.seconds / max) * 70, 2)}px` }}
+                        />
+                      </div>
+                      <span className="mt-1.5 text-[10px] text-muted-foreground">
                         {d.date
                           ? new Date(`${d.date}T00:00:00`).toLocaleDateString("en-US", {
                               weekday: "short",
