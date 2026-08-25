@@ -1,6 +1,6 @@
 import { Link } from "next-view-transitions";
 import { FileText } from "lucide-react";
-import { GithubIcon, MailIcon } from "@/components/icons";
+import { GithubIcon, MailIcon, LeetCodeIcon, DiscordIcon } from "@/components/icons";
 import { LiveClock } from "@/components/live-clock";
 import { ExperienceSection } from "@/components/experience-section";
 import { ProjectCard } from "@/components/project-card";
@@ -62,6 +62,21 @@ export default async function Home() {
               <MailIcon className="size-4" />
               Email
             </a>
+            <a
+              href={socials.leetcode}
+              target="_blank"
+              rel="noreferrer"
+              className={cn(pillSurface, "flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:text-foreground")}
+            >
+              <LeetCodeIcon className="size-4" />
+              LeetCode
+            </a>
+            <div
+              className={cn(pillSurface, "flex items-center gap-2 px-4 py-2.5 text-sm font-medium text-secondary-foreground hover:translate-y-0")}
+            >
+              <DiscordIcon className="size-4" />
+              {socials.discord}
+            </div>
           </div>
         </div>
 

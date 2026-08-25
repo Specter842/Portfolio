@@ -128,6 +128,8 @@ export const skillGroups: { label: string; items: string[] }[] = [
 export const socials = {
   github: "https://github.com/Specter842",
   behance: "https://behance.net/specter842",
+  leetcode: "https://leetcode.com/Specter842/",
+  discord: "@specter842",
   email: "specterofficial842@gmail.com",
   resumeEmail: "specterofficial842@gmail.com",
 };
