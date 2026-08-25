@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-border/60">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 px-6 py-8 text-center text-sm text-muted-foreground">
+      <div className="mx-auto flex max-w-5xl flex-col items-center gap-1.5 px-6 py-4 text-center text-sm text-muted-foreground">
         <p>© 2026 specter842. All rights reserved.</p>
         <p>
           Fueled by <span aria-hidden>☕</span>
