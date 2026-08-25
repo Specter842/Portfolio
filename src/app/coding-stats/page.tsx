@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Coding Stats | Specter842",
 };
 
+// Live stats -- render fresh on every request instead of a static snapshot.
+export const dynamic = "force-dynamic";
+
 function SectionLabel({ children }: { children: ReactNode }) {
   return (
     <p className="text-xs font-semibold tracking-widest text-muted-foreground">{children}</p>

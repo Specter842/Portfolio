@@ -10,6 +10,11 @@ import { projects, socials } from "@/data/content";
 import { pillSurface, cn } from "@/lib/utils";
 import { getWakaTimeWeekSummary } from "@/lib/wakatime";
 
+// This page fetches live stats -- force it to render fresh on every request
+// instead of being statically cached, so navigating here doesn't require a
+// hard refresh to see updated numbers.
+export const dynamic = "force-dynamic";
+
 const featured = projects.filter((p) => p.featured);
 
 export default async function Home() {
