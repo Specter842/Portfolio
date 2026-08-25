@@ -7,6 +7,7 @@ import { Nav } from "@/components/nav";
 import { Footer } from "@/components/footer";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { ScrollProgressBar } from "@/components/scroll-progress-bar";
+import { SuppressViewTransitionErrors } from "@/components/suppress-view-transition-errors";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       >
         <body className="min-h-full flex flex-col">
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+            <SuppressViewTransitionErrors />
             <ScrollProgressBar />
             <Nav />
             {children}
