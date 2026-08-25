@@ -24,7 +24,7 @@ export default async function Home() {
     <main>
       <section className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
         <div>
-          <h1 className="relative text-5xl font-bold tracking-tight sm:text-6xl">
+          <h1 className="relative text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             <span
               aria-hidden
               className="pointer-events-none absolute -top-1 left-1 text-transparent [-webkit-text-stroke:1px_var(--border)] select-none"
