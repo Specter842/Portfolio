@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { socials } from "@/data/content";
 import { cardSurface, cn } from "@/lib/utils";
 

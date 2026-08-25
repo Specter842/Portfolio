@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { FileText } from "lucide-react";
 import { GithubIcon, MailIcon } from "@/components/icons";
 import { LiveClock } from "@/components/live-clock";
