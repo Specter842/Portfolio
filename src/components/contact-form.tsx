@@ -3,16 +3,27 @@
 import { useState, type FormEvent } from "react";
 
 const FORM_ENDPOINT = "https://forminit.com/f/cbuc497qrrz";
+const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024;
 
 const inputClass =
   "mt-1.5 w-full rounded-lg border border-border-strong bg-background px-3 py-2 text-sm outline-none focus:border-accent";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error" | "too-large">(
+    "idle"
+  );
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
+
+    const attachment = (form.elements.namedItem("fi-file-attachment") as HTMLInputElement | null)
+      ?.files?.[0];
+    if (attachment && attachment.size > MAX_ATTACHMENT_BYTES) {
+      setStatus("too-large");
+      return;
+    }
+
     setStatus("sending");
 
     try {
@@ -95,7 +106,7 @@ export function ContactForm() {
           className="mt-1.5 block w-full text-sm text-muted-foreground file:mr-3 file:rounded-lg file:border file:border-border-strong file:bg-card file:px-3 file:py-1.5 file:text-sm file:font-medium"
         />
         <p className="mt-1 text-xs text-muted-foreground">
-          Max 8MB. Supported: Images, PDF, TXT, DOC
+          Max 3MB. Supported: Images, PDF, TXT, DOC
         </p>
       </div>
 
@@ -113,6 +124,11 @@ export function ContactForm() {
       {status === "error" && (
         <p className="text-sm text-destructive">
           Something went wrong sending that — try again, or email me directly.
+        </p>
+      )}
+      {status === "too-large" && (
+        <p className="text-sm text-destructive">
+          That attachment is over 3MB — remove it or attach a smaller file.
         </p>
       )}
     </form>

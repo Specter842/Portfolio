@@ -1,5 +1,5 @@
 const GITHUB_COLOR = "var(--accent-color)";
-const LEETCODE_COLOR = "oklch(75% 0.15 55)"; // orange, distinct from the site's accent
+const LEETCODE_COLOR = "oklch(65% 0 0)"; // neutral gray, distinct from the site's accent
 
 function intensity(count: number) {
   if (count <= 0) return 0;
