@@ -30,7 +30,7 @@ export function LiveClock({ codedToday, weekTotal, dailyAvg, languages }: LiveCl
     : "";
 
   return (
-    <div className="rounded-2xl border border-border bg-background p-5">
+    <div className="min-w-0 rounded-2xl border border-border bg-background p-5">
       <p className="text-sm text-muted-foreground">{now ? greeting(now.getHours()) : ""}</p>
       <p className="mt-1 font-mono text-2xl font-semibold">{time}</p>
       <p className="mt-3 text-xs text-muted-foreground">
