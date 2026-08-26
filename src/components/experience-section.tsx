@@ -4,7 +4,7 @@ import { cardSurface, cn } from "@/lib/utils";
 
 export function ExperienceSection() {
   return (
-    <section className="mx-auto max-w-5xl px-6 py-16">
+    <section className="mx-auto max-w-5xl px-6 py-10 sm:py-16">
       <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Experience</h2>
       <p className="mt-2 text-muted-foreground">Where I&apos;ve worked and what I&apos;ve built</p>
 
