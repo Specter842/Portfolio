@@ -40,7 +40,7 @@ export default async function CodingStatsPage() {
 
       <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:items-start">
       {/* GitHub */}
-      <section className="rounded-2xl border border-border bg-background p-6">
+      <section className="min-w-0 rounded-2xl border border-border bg-background p-6">
         <div className="flex items-center justify-between">
           <SectionLabel>ON GITHUB</SectionLabel>
           <a
@@ -80,7 +80,7 @@ export default async function CodingStatsPage() {
       </section>
 
       {/* Editor */}
-      <section className="rounded-2xl border border-border bg-background p-6">
+      <section className="min-w-0 rounded-2xl border border-border bg-background p-6">
         <div className="flex items-center justify-between">
           <SectionLabel>IN THE EDITOR</SectionLabel>
           <span className="text-xs text-muted-foreground">last 7 days</span>

@@ -23,7 +23,7 @@ export default async function Home() {
   return (
     <main>
       <section className="mx-auto grid max-w-5xl gap-10 px-6 py-10 md:grid-cols-2 md:items-center md:py-24">
-        <div>
+        <div className="min-w-0">
           <h1 className="relative text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             <span
               aria-hidden
