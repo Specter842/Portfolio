@@ -22,7 +22,7 @@ export default async function Home() {
 
   return (
     <main>
-      <section className="mx-auto grid max-w-5xl gap-10 px-6 py-16 md:grid-cols-2 md:items-center md:py-24">
+      <section className="mx-auto grid max-w-5xl gap-10 px-6 py-10 md:grid-cols-2 md:items-center md:py-24">
         <div>
           <h1 className="relative text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             <span
@@ -84,7 +84,7 @@ export default async function Home() {
 
       <ExperienceSection />
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
+      <section className="mx-auto max-w-5xl px-6 py-10 sm:py-16">
         <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Featured Projects</h2>
         <p className="mt-2 text-muted-foreground">Some things I&apos;ve created</p>
 
