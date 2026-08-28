@@ -155,13 +155,19 @@ export default async function CodingStatsPage() {
         <SectionLabel>CERTIFICATIONS</SectionLabel>
         <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
           {certifications.map((c) => (
-            <div key={c.name} className="flex items-center gap-2 rounded-lg border border-border p-3">
+            <a
+              key={c.name}
+              href={c.url}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 rounded-lg border border-border p-3 transition-colors hover:border-accent"
+            >
               <BadgeCheck className="size-4 shrink-0 text-accent" />
               <div>
                 <p className="text-sm font-medium">{c.name}</p>
                 <p className="text-xs text-muted-foreground">{c.issuer}</p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </section>
