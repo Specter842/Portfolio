@@ -133,3 +133,10 @@ export const socials = {
   email: "specterofficial842@gmail.com",
   resumeEmail: "specterofficial842@gmail.com",
 };
+
+export const certifications = [
+  { name: "SQL (Basic)", issuer: "HackerRank" },
+  { name: "SQL (Intermediate)", issuer: "HackerRank" },
+  { name: "Python (Basic)", issuer: "HackerRank" },
+  { name: "JavaScript (Basic)", issuer: "HackerRank" },
+];
