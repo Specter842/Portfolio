@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { BadgeCheck } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
-import { socials } from "@/data/content";
+import { socials, certifications } from "@/data/content";
 import { getGithubStats } from "@/lib/github";
 import { getWakaTimeWeekSummary } from "@/lib/wakatime";
 import { PieChart } from "@/components/pie-chart";
@@ -149,6 +150,21 @@ export default async function CodingStatsPage() {
         </div>
       </section>
       </div>
+
+      <section className="mt-8 rounded-2xl border border-border bg-background p-6">
+        <SectionLabel>CERTIFICATIONS</SectionLabel>
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {certifications.map((c) => (
+            <div key={c.name} className="flex items-center gap-2 rounded-lg border border-border p-3">
+              <BadgeCheck className="size-4 shrink-0 text-accent" />
+              <div>
+                <p className="text-sm font-medium">{c.name}</p>
+                <p className="text-xs text-muted-foreground">{c.issuer}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
