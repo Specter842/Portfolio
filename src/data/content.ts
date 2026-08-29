@@ -135,8 +135,8 @@ export const socials = {
 };
 
 export const certifications = [
-  { name: "SQL (Basic)", issuer: "HackerRank", url: "https://www.hackerrank.com/certificates/668e1a7fa50e" },
-  { name: "SQL (Intermediate)", issuer: "HackerRank", url: "https://www.hackerrank.com/certificates/9de146848084" },
-  { name: "Python (Basic)", issuer: "HackerRank", url: "https://www.hackerrank.com/certificates/80ef7607be5f" },
-  { name: "JavaScript (Basic)", issuer: "HackerRank", url: "https://www.hackerrank.com/certificates/e433ad61a286" },
+  { name: "SQL (Basic)", issuer: "HackerRank" },
+  { name: "SQL (Intermediate)", issuer: "HackerRank" },
+  { name: "Python (Basic)", issuer: "HackerRank" },
+  { name: "JavaScript (Basic)", issuer: "HackerRank" },
 ];

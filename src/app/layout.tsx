@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Specter842",
   description:
-    "Computational Systems Engineer building secure, intelligent systems across cybersecurity, blockchain, and robotics.",
+    "Computational Systems Engineer focused on AI/ML, robotics, and cybersecurity, building intelligent pipelines across finance, blockchain, IoT, and autonomous systems with end-to-end ownership from data to secure decentralized infrastructure.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
