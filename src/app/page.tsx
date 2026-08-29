@@ -33,9 +33,10 @@ export default async function Home() {
             </span>
             <span className="relative">specter842</span>
           </h1>
-          <p className="mt-4 max-w-md text-muted-foreground">
-            Computational Systems Engineer building secure, intelligent systems across
-            cybersecurity, blockchain, and robotics.
+          <p className="mt-4 max-w-lg text-muted-foreground">
+            Computational Systems Engineer focused on AI/ML, robotics, and cybersecurity, building
+            intelligent pipelines across finance, blockchain, IoT, and autonomous systems with
+            end-to-end ownership from data to secure decentralized infrastructure.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">
