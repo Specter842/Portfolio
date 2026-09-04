@@ -123,6 +123,14 @@ export const skillGroups: { label: string; items: string[] }[] = [
     label: "ENGINEERING",
     items: ["Robotics", "Embedded Systems", "Control Systems", "Prototyping"],
   },
+  {
+    label: "CHEATSHEETS",
+    items: [
+      "SQL", "Bash", "Java", "Solidity", "TensorFlow", "Terraform", "Alpaca API",
+      "TLS / mTLS", "MQTT", "ESP32", "FPGA", "Isaac Sim", "Hardhat", "ethers.js",
+      "Jupyter", "Grafana", "Quantum ML", "Astropy",
+    ],
+  },
 ];
 
 export const socials = {
@@ -139,25 +147,4 @@ export const certifications = [
   { name: "SQL (Intermediate)", issuer: "HackerRank" },
   { name: "Python (Basic)", issuer: "HackerRank" },
   { name: "JavaScript (Basic)", issuer: "HackerRank" },
-];
-
-export const cheatsheets = [
-  "SQL",
-  "Bash",
-  "Java",
-  "Solidity",
-  "TensorFlow",
-  "Terraform",
-  "Alpaca API",
-  "TLS / mTLS",
-  "MQTT",
-  "ESP32",
-  "FPGA",
-  "Isaac Sim",
-  "Hardhat",
-  "ethers.js",
-  "Jupyter",
-  "Grafana",
-  "Quantum ML",
-  "Astropy",
 ];
