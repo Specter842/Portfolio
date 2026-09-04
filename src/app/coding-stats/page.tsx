@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { BadgeCheck } from "lucide-react";
 import { GithubIcon } from "@/components/icons";
-import { socials, certifications } from "@/data/content";
+import { socials, certifications, cheatsheets } from "@/data/content";
 import { getGithubStats } from "@/lib/github";
 import { getWakaTimeWeekSummary } from "@/lib/wakatime";
 import { PieChart } from "@/components/pie-chart";
@@ -165,6 +165,20 @@ export default async function CodingStatsPage() {
                 <p className="text-xs text-muted-foreground">{c.issuer}</p>
               </div>
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-8 rounded-2xl border border-border bg-background p-6">
+        <SectionLabel>CHEATSHEETS</SectionLabel>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {cheatsheets.map((c) => (
+            <span
+              key={c}
+              className="rounded-full bg-secondary/50 px-3 py-1 text-xs text-muted-foreground"
+            >
+              {c}
+            </span>
           ))}
         </div>
       </section>

@@ -140,3 +140,24 @@ export const certifications = [
   { name: "Python (Basic)", issuer: "HackerRank" },
   { name: "JavaScript (Basic)", issuer: "HackerRank" },
 ];
+
+export const cheatsheets = [
+  "SQL",
+  "Bash",
+  "Java",
+  "Solidity",
+  "TensorFlow",
+  "Terraform",
+  "Alpaca API",
+  "TLS / mTLS",
+  "MQTT",
+  "ESP32",
+  "FPGA",
+  "Isaac Sim",
+  "Hardhat",
+  "ethers.js",
+  "Jupyter",
+  "Grafana",
+  "Quantum ML",
+  "Astropy",
+];
