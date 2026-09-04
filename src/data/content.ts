@@ -111,25 +111,17 @@ export const skillGroups: { label: string; items: string[] }[] = [
   { label: "LANGUAGES", items: ["Python", "Java", "C++", "JavaScript", "SQL"] },
   {
     label: "DEVELOPMENT",
-    items: ["Android Development", "Software Architecture", "AI/ML Systems"],
+    items: ["Android Development", "Software Architecture", "AI/ML Systems", "TensorFlow", "Alpaca API", "Quantum ML", "Astropy"],
   },
   {
     label: "CYBERSECURITY",
-    items: ["Secure Systems", "Network Security", "Threat Analysis", "Data Protection", "LLM Security"],
+    items: ["Secure Systems", "Network Security", "Threat Analysis", "Data Protection", "LLM Security", "TLS / mTLS"],
   },
-  { label: "BLOCKCHAIN", items: ["Solidity", "Ethereum", "Smart Contracts", "Web3.py"] },
-  { label: "TOOLS", items: ["Git", "GitHub", "Linux", "Android Studio", "VS Code"] },
+  { label: "BLOCKCHAIN", items: ["Solidity", "Ethereum", "Smart Contracts", "Web3.py", "Hardhat", "ethers.js"] },
+  { label: "TOOLS", items: ["Git", "GitHub", "Linux", "Android Studio", "VS Code", "Bash", "Terraform", "Jupyter", "Grafana"] },
   {
     label: "ENGINEERING",
-    items: ["Robotics", "Embedded Systems", "Control Systems", "Prototyping"],
-  },
-  {
-    label: "CHEATSHEETS",
-    items: [
-      "SQL", "Bash", "Java", "Solidity", "TensorFlow", "Terraform", "Alpaca API",
-      "TLS / mTLS", "MQTT", "ESP32", "FPGA", "Isaac Sim", "Hardhat", "ethers.js",
-      "Jupyter", "Grafana", "Quantum ML", "Astropy",
-    ],
+    items: ["Robotics", "Embedded Systems", "Control Systems", "Prototyping", "MQTT", "ESP32", "FPGA", "Isaac Sim"],
   },
 ];
 
